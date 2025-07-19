@@ -7,106 +7,71 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        .hero-section {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-        }
-        .name-glow {
-            text-shadow: 0 0 15px rgba(14, 165, 233, 0.7);
-        }
-        .pool-theme {
-            background: linear-gradient(to bottom, #0f172a, #1e40af);
-        }
-        .photo-frame {
-            border: 8px solid #0ea5e9;
-            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
-        }
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-        .hidden-player {
-            position: absolute;
-            width: 0;
-            height: 0;
-            overflow: hidden;
-        }
+      body {
+        /* Fondo degradado moderno */
+        background: linear-gradient(115deg, #0f172a 0%, #1e293b 70%, #38bdf8 100%);
+      }
+      .card {
+        backdrop-filter: blur(6px);
+        background: rgba(17,24,39,.8);
+        box-shadow: 0 8px 40px 0 rgba(56,189,248,0.18);
+      }
+      .name-glow {
+        text-shadow: 0 0 25px #38bdf8, 0 0 4px #0ea5e9;
+      }
     </style>
 </head>
-<body class="font-sans bg-gray-900 text-white">
-    <!-- Audio (oculto pero funcional) -->
-    <div class="hidden-player">
-        <audio id="musica" autoplay loop>
-            <source src="cancion.mp3" type="audio/mpeg">
-            Tu navegador no soporta audio.
-        </audio>
+<body class="min-h-screen flex items-center justify-center">
+
+  <div class="card w-full max-w-md mx-auto rounded-3xl p-7 border-2 border-cyan-400 animate__animated animate__fadeInDown">
+
+    <div class="text-center mb-6">
+      <h1 class="text-4xl md:text-5xl font-extrabold name-glow text-cyan-300 mb-2 animate__animated animate__pulse animate__infinite">
+        ¡Santiago cumple 15!
+      </h1>
+      <div class="mt-2">
+        <span class="text-xl text-gray-200 font-light">¡Estás invitado a mi fiesta de XV años!</span>
+      </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero-section text-white py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate__animated animate__fadeInDown">¡SANTIAGO</h1>
-            <p class="text-2xl md:text-3xl mb-8 animate__animated animate__fadeIn animate__delay-1s">Cumple 15 Años</p>
-            
-            <!-- Foto local -->
-            <div class="photo-frame w-64 h-64 mx-auto rounded-full overflow-hidden animate__animated animate__fadeIn animate__delay-2s floating">
-                <img src="imagenes/foto1.jpg" 
-                     alt="Santiago" 
-                     class="w-full h-full object-cover">
-            </div>
-            
-            <h2 class="text-4xl md:text-5xl font-bold mt-12 mb-4 animate__animated animate__fadeIn animate__delay-3s name-glow">SANTIAGO</h2>
-            <p class="text-xl animate__animated animate__fadeIn animate__delay-3s">¡Fiesta con alberca!</p>
-        </div>
-    </section>
+    <div class="flex items-center justify-center mb-5">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=400&h=400" alt="Foto de Santiago" class="w-32 h-32 rounded-full border-4 border-cyan-400 shadow-lg">
+    </div>
 
-    <!-- Sección de detalles (personaliza tus textos) -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div class="text-center">
-            <h3 class="text-3xl font-bold text-cyan-400 mb-8">DETALLES</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-gray-800 p-6 rounded-xl border border-cyan-700">
-                    <div class="text-cyan-400 text-5xl mb-3">📅</div>
-                    <h4 class="font-bold text-lg mb-2">Fecha</h4>
-                    <p class="text-gray-300">16 de Agosto, 2025</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-xl border border-cyan-700">
-                    <div class="text-cyan-400 text-5xl mb-3">⏰</div>
-                    <h4 class="font-bold text-lg mb-2">Hora</h4>
-                    <p class="text-gray-300">8:00 PM</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-xl border border-cyan-700">
-                    <div class="text-cyan-400 text-5xl mb-3">📍</div>
-                    <h4 class="font-bold text-lg mb-2">Lugar</h4>
-                    <p class="text-gray-300">Salón Las Palmas</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="mb-7 text-center">
+      <div class="text-xl font-semibold text-cyan-400 mb-2">
+        Fecha:
+      </div>
+      <div class="text-lg text-white mb-3">
+        <span class="font-bold">16 de Agosto, 2025</span>
+      </div>
+      <div class="text-xl font-semibold text-cyan-400 mb-2">
+        Hora:
+      </div>
+      <div class="text-lg text-white mb-3">
+        <span class="font-bold">8:00 PM</span>
+      </div>
+      <div class="text-xl font-semibold text-cyan-400 mb-2">
+        Lugar:
+      </div>
+      <div class="text-lg text-white mb-3">
+        <span class="font-bold">Salón Las Palmas</span>
+      </div>
+      <div class="text-xl font-semibold text-cyan-400 mb-2">
+        Dirección:
+      </div>
+      <div class="text-lg text-white mb-3">
+        <span class="font-bold">[Pon aquí la dirección]</span>
+      </div>
+    </div>
 
-    <!-- Script para forzar reproducción en móviles -->
-    <script>
-        // Fuerza interacción inicial
-        document.addEventListener('click', function() {
-            const audio = document.getElementById('musica');
-            audio.play().catch(e => console.log("Autoplay bloqueado: ", e));
-        }, { once: true });
+    <div class="mt-6 text-center">
+      <button class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-full shadow animate__animated animate__pulse animate__infinite">
+        ¡Confirma tu asistencia!
+      </button>
+    </div>
 
-        // Opcional: Botón de respaldo
-        function addFallbackButton() {
-            if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-                const btn = document.createElement('button');
-                btn.textContent = '▶️ Reproducir Música';
-                btn.className = 'fixed bottom-4 right-4 bg-cyan-600 text-white px-4 py-2 rounded-lg animate-pulse';
-                btn.onclick = () => document.getElementById('musica').play();
-                document.body.appendChild(btn);
-            }
-        }
-        addFallbackButton();
-    </script>
+  </div>
+
 </body>
 </html>
