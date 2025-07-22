@@ -30,6 +30,7 @@
       text-align: center;
       position: relative;
       animation: fadein 1.3s;
+      cursor: pointer;
     }
     .titulo {
       font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
@@ -98,26 +99,6 @@
       min-width: 55px;
       box-shadow: 0 1px 8px #0003;
     }
-    .musica-btn {
-      margin-top: 1.1rem;
-      background: linear-gradient(90deg,#1976d2,#4fd1c5);
-      color: #fff;
-      border: none;
-      border-radius: 2.5rem;
-      padding: 0.7rem 2.1rem;
-      font-size: 1.15rem;
-      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-      font-weight: 700;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-      box-shadow: 0 1px 8px #0005;
-      animation: fadein 2.4s;
-    }
-    .musica-btn:hover {
-      background: linear-gradient(90deg,#4fd1c5,#1976d2);
-      transform: scale(1.06);
-    }
     .img-pendiente {
       width: 110px;
       height: 110px;
@@ -147,7 +128,7 @@
   <!-- Confetti Canvas -->
   <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:5;"></canvas>
 
-  <div class="main-card">
+  <div class="main-card" id="mainCard" title="Haz clic si no escuchas la canción para reproducirla">
     <div class="img-pendiente">
       <!-- Aquí va tu foto en el futuro -->
       <span>👦</span>
@@ -171,7 +152,6 @@
       <span id="minutos">00</span>:
       <span id="segundos">00</span>
     </div>
-    <button class="musica-btn" onclick="tocarMusica()">▶ Escuchar canción especial</button>
     <audio id="audio" src="yo-te-esperaba.mp3"></audio>
   </div>
 
@@ -243,17 +223,21 @@
     actualizarContador();
   </script>
 
-  <!-- Música -->
+  <!-- Música oculta & click en tarjeta -->
   <script>
-    function tocarMusica() {
-      const audio = document.getElementById('audio');
-      if(audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
+    const audio = document.getElementById('audio');
+    let intentado = false;
+    function reproducirMusica() {
+      if (!intentado) {
+        intentado = true;
         audio.currentTime = 0;
+        audio.play().catch(()=>{ /* algunos navegadores requieren interacción */ });
       }
     }
+    // Intenta reproducir a los 2 segundos
+    setTimeout(reproducirMusica, 2000);
+    // Permite reproducir con cualquier clic en la tarjeta si no sonó
+    document.getElementById('mainCard').addEventListener('click',reproducirMusica);
   </script>
 </body>
 </html>
