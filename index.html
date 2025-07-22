@@ -1,77 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Santiago Cumple 15!</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <style>
-      body {
-        /* Fondo degradado moderno */
-        background: linear-gradient(115deg, #0f172a 0%, #1e293b 70%, #38bdf8 100%);
-      }
-      .card {
-        backdrop-filter: blur(6px);
-        background: rgba(17,24,39,.8);
-        box-shadow: 0 8px 40px 0 rgba(56,189,248,0.18);
-      }
-      .name-glow {
-        text-shadow: 0 0 25px #38bdf8, 0 0 4px #0ea5e9;
-      }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santiago - Invitación XV años</title>
+  <!-- Comic Sans para el título -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    .container {
+      background: rgba(20,20,20,0.90);
+      border-radius: 28px;
+      box-shadow: 0 6px 32px #2228;
+      padding: 2.5rem 2rem 2rem 2rem;
+      max-width: 400px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    .titulo {
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+      font-size: 2.6rem;
+      color: #72c2ff;
+      letter-spacing: 2px;
+      text-align: center;
+      margin-bottom: 1.3rem;
+      text-shadow: 0 3px 12px #44abe7;
+    }
+    .detalle {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+      text-align: center;
+    }
+    .label {
+      color: #36e6e6;
+      font-weight: bold;
+      font-size: 1.07rem;
+    }
+    .separador {
+      border-top: 1.5px solid #222;
+      margin: 1.8rem 0 1.3rem 0;
+    }
+    .banio {
+      background: rgba(40,40,40,0.95);
+      border: 1px dashed #72c2ff;
+      border-radius: 18px;
+      padding: 0.8rem 1rem;
+      margin: 1.5rem 0 1rem 0;
+      color: #72c2ff;
+      font-size: 1.08rem;
+      font-style: italic;
+      text-align: center;
+      box-shadow: 0 2px 10px #0006;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 500px) {
+      .container { max-width: 95vw; padding: 1rem; }
+      .titulo { font-size: 2rem; }
+    }
+  </style>
 </head>
-<body class="min-h-screen flex items-center justify-center">
-
-  <div class="card w-full max-w-md mx-auto rounded-3xl p-7 border-2 border-cyan-400 animate__animated animate__fadeInDown">
-
-    <div class="text-center mb-6">
-      <h1 class="text-4xl md:text-5xl font-extrabold name-glow text-cyan-300 mb-2 animate__animated animate__pulse animate__infinite">
-        ¡Santiago cumple 15!
-      </h1>
-      <div class="mt-2">
-        <span class="text-xl text-gray-200 font-light">¡Estás invitado a mi fiesta de XV años!</span>
-      </div>
+<body>
+  <div class="container">
+    <div class="titulo">Santiago</div>
+    <div class="detalle">
+      Te invito a celebrar mi fiesta de 15 años que se llevará a cabo el día <span class="label">16 de agosto del 2025</span>.<br>
+      <span class="label">Dirección:</span> xxxxxxxx<br>
+      <span class="label">Horario:</span> 8:00 pm a 1:00 am<br>
+      <span class="label">Regalo:</span> efectivo
     </div>
-
-    <div class="flex items-center justify-center mb-5">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=400&h=400" alt="Foto de Santiago" class="w-32 h-32 rounded-full border-4 border-cyan-400 shadow-lg">
+    <div class="separador"></div>
+    <div class="banio">
+      También puedes traer tu <b>traje de baño</b> 🩳🩱
     </div>
-
-    <div class="mb-7 text-center">
-      <div class="text-xl font-semibold text-cyan-400 mb-2">
-        Fecha:
-      </div>
-      <div class="text-lg text-white mb-3">
-        <span class="font-bold">16 de Agosto, 2025</span>
-      </div>
-      <div class="text-xl font-semibold text-cyan-400 mb-2">
-        Hora:
-      </div>
-      <div class="text-lg text-white mb-3">
-        <span class="font-bold">8:00 PM</span>
-      </div>
-      <div class="text-xl font-semibold text-cyan-400 mb-2">
-        Lugar:
-      </div>
-      <div class="text-lg text-white mb-3">
-        <span class="font-bold">Salón Las Palmas</span>
-      </div>
-      <div class="text-xl font-semibold text-cyan-400 mb-2">
-        Dirección:
-      </div>
-      <div class="text-lg text-white mb-3">
-        <span class="font-bold">[Pon aquí la dirección]</span>
-      </div>
+    <div class="separador"></div>
+    <div style="text-align:center;margin:14px 0;">
+      <b>Canción especial:</b>
+      <br>
+      <!-- SoundCloud embed -->
+      <iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michell02/sets/te-esperaba-carlos-rivera&color=%2372c2ff&auto_play=false&show_artwork=true">
+      </iframe>
     </div>
-
-    <div class="mt-6 text-center">
-      <button class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-full shadow animate__animated animate__pulse animate__infinite">
-        ¡Confirma tu asistencia!
-      </button>
-    </div>
-
   </div>
-
 </body>
 </html>
