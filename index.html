@@ -3,30 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Santiago XV - Invitación</title>
-  <!-- Fuente Comic Sans -->
+  <title>SANTIAGO XV - INVITACIÓN</title>
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       background: #141414;
       min-height: 100vh;
       margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      padding: 0;
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    body {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      color: #fff;
+      min-height: 100vh;
       overflow-x: hidden;
     }
     .main-card {
       background: rgba(30,30,30,0.96);
       border-radius: 2.5rem;
       box-shadow: 0 10px 40px #1976d241, 0 2px 8px #000a;
-      margin: 50px 0 24px 0;
+      margin: 40px 0 24px 0;
       padding: 2.2rem 2.1rem 1.8rem 2.1rem;
-      max-width: 400px;
-      width: 95vw;
+      max-width: 420px;
+      width: 96vw;
       text-align: center;
       position: relative;
       animation: fadein 1.3s;
@@ -35,58 +39,71 @@
     .titulo {
       font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
       color: #60aaff;
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       font-weight: bold;
       letter-spacing: 3px;
       margin-bottom: 1.1rem;
       text-shadow: 0 3px 16px #1976d2b9;
       animation: popin 1s;
+      text-transform: uppercase;
     }
     .detalle {
-      font-size: 1.21rem;
+      font-size: 1.09rem;
       line-height: 1.7;
       margin-bottom: 1.2rem;
       color: #e0eaff;
       animation: fadein 2s;
+      text-align: justify;
+      text-transform: uppercase;
     }
     .label {
       color: #4fd1c5;
-      font-weight: 600;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     .regalo {
       margin-top: 0.7rem;
       background: rgba(48,48,48,0.92);
       border-radius: 1.2rem;
       padding: 0.7rem 0.5rem;
-      font-size: 1.09rem;
+      font-size: 1.02rem;
       color: #ffe066;
       display: inline-block;
       box-shadow: 0 1px 8px #0004;
       animation: fadein 2.2s;
+      text-transform: uppercase;
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+      letter-spacing: 2px;
     }
     .banio {
       background: rgba(38,38,38,0.96);
       border: 1px dashed #60aaff;
       border-radius: 1.2rem;
       margin: 1.2rem 0 1.1rem 0;
-      font-size: 1.09rem;
+      font-size: 1.02rem;
       color: #60aaff;
       font-style: italic;
       padding: 0.7rem 0.5rem;
       animation: fadein 2.3s;
+      text-transform: uppercase;
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+      letter-spacing: 2px;
     }
     .cuenta {
       font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-      font-size: 1.6rem;
+      font-size: 1.22rem;
       color: #ffb300;
       margin: 1.3rem 0 0.6rem 0;
       animation: popin 1.2s;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
     .contador {
       display: flex;
       justify-content: center;
-      gap: 1.2rem;
-      font-size: 2.2rem;
+      gap: 0.45rem;
+      font-size: 1.25rem;
       font-weight: bold;
       color: #72c2ff;
       margin-bottom: 1.3rem;
@@ -94,18 +111,20 @@
     }
     .contador span {
       background: #283646;
-      border-radius: 1.3rem;
-      padding: 0.45em 1.1em;
-      min-width: 55px;
+      border-radius: 1.1rem;
+      padding: 0.24em 0.7em;
+      min-width: 32px;
       box-shadow: 0 1px 8px #0003;
+      font-size: 1.15em;
+      letter-spacing: 1px;
     }
     .img-pendiente {
-      width: 110px;
-      height: 110px;
+      width: 90px;
+      height: 90px;
       background: #242c34;
       border: 2px dashed #72c2ff;
       border-radius: 50%;
-      margin: 0 auto 1.3rem auto;
+      margin: 0 auto 1.1rem auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -113,14 +132,19 @@
       font-size: 2rem;
       opacity: 0.5;
       animation: fadein 1.8s;
+      text-transform: uppercase;
     }
     @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
     @keyframes popin { 0% { transform: scale(0.7); opacity:0; } 70% { transform: scale(1.08); opacity:1; } 100% { transform: scale(1); } }
-    @media (max-width: 480px) {
-      .main-card { padding: 1.1rem 0.2rem; }
-      .titulo { font-size: 2rem; }
-      .contador { font-size: 1.3rem; gap: 0.5rem; }
-      .cuenta { font-size: 1.1rem; }
+    @media (max-width: 600px) {
+      .main-card { padding: 1.1rem 0.3rem; max-width: 98vw;}
+      .titulo { font-size: 1.5rem; }
+      .banio, .regalo { font-size: 0.97rem; }
+      .detalle { font-size: 0.97rem; }
+      .cuenta { font-size: 1.01rem; }
+      .contador { font-size: 0.85rem;}
+      .contador span { min-width: 22px; font-size: 1em;}
+      .img-pendiente { width: 62px; height: 62px; font-size: 1.3rem;}
     }
   </style>
 </head>
@@ -128,24 +152,24 @@
   <!-- Confetti Canvas -->
   <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:5;"></canvas>
 
-  <div class="main-card" id="mainCard" title="Haz clic si no escuchas la canción para reproducirla">
+  <div class="main-card" id="mainCard" title="Toca la tarjeta para escuchar la música">
     <div class="img-pendiente">
       <!-- Aquí va tu foto en el futuro -->
       <span>👦</span>
     </div>
-    <div class="titulo">Santiago</div>
+    <div class="titulo">SANTIAGO</div>
     <div class="detalle">
-      Te invito a celebrar mi fiesta de 15 años que se llevará a cabo el día <span class="label">16 de agosto del 2025</span>.<br>
-      <span class="label">Dirección:</span> xxxxxxxx<br>
-      <span class="label">Horario:</span> 8:00 pm a 1:00 am
+      TE INVITO A CELEBRAR MI FIESTA DE 15 AÑOS QUE SE LLEVARÁ A CABO EL DÍA <span class="label">16 DE AGOSTO DEL 2025</span>.<br>
+      <span class="label">DIRECCIÓN:</span> XXXXXXXX<br>
+      <span class="label">HORARIO:</span> 8:00 PM A 1:00 AM
     </div>
     <div class="regalo">
-      Regalo sugerido: <b>efectivo</b>
+      REGALO SUGERIDO: EFECTIVO
     </div>
     <div class="banio">
-      También puedes traer tu <b>traje de baño</b> 🩳🩱
+      TAMBIÉN PUEDES TRAER TU TRAJE DE BAÑO 🩳🩱
     </div>
-    <div class="cuenta">Faltan:</div>
+    <div class="cuenta">FALTAN:</div>
     <div class="contador" id="contador">
       <span id="dias">00</span>:
       <span id="horas">00</span>:
@@ -157,7 +181,6 @@
 
   <!-- Confetti JS -->
   <script>
-  // Confetti simple
   function confettiParticle(ctx, x, y, r, c, v, a) {
     this.x = x; this.y = y; this.r = r; this.c = c; this.v = v; this.a = a;
     this.draw = function() {
@@ -234,9 +257,7 @@
         audio.play().catch(()=>{ /* algunos navegadores requieren interacción */ });
       }
     }
-    // Intenta reproducir a los 2 segundos
-    setTimeout(reproducirMusica, 2000);
-    // Permite reproducir con cualquier clic en la tarjeta si no sonó
+    // Solo se reproduce al primer toque/click en la tarjeta
     document.getElementById('mainCard').addEventListener('click',reproducirMusica);
   </script>
 </body>
