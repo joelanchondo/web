@@ -163,8 +163,28 @@
       text-align: center;
       display: inline-block;
     }
+    /* Botón fallback música */
+    #boton-musica-fallback {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg,#1976d2,#4fd1c5);
+      color: #fff;
+      padding: 16px 38px;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 1.18rem;
+      z-index: 9999;
+      box-shadow: 0 2px 16px #0006;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 2.5px;
+      animation: bounce 1.2s infinite alternate;
+    }
     @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
     @keyframes popin { 0% { transform: scale(0.7); opacity:0; } 70% { transform: scale(1.08); opacity:1; } 100% { transform: scale(1); } }
+    @keyframes bounce { 0% { transform: translateX(-50%) translateY(0);} 100% { transform: translateX(-50%) translateY(-16px);} }
     @media (max-width: 700px) {
       .main-card { padding: 1.3rem 0.3rem 1.5rem 0.3rem; max-width: 98vw; gap: 1.3rem;}
       .titulo { font-size: 1.7rem; letter-spacing: 4px;}
@@ -290,21 +310,53 @@
     actualizarContador();
   </script>
 
-  <!-- Música oculta & click en tarjeta y pantalla -->
+  <!-- Música oculta & botón fallback para móviles -->
   <script>
     const audio = document.getElementById('audio');
     let intentado = false;
+
     function reproducirMusica() {
-      if (!intentado) {
-        intentado = true;
-        audio.currentTime = 0;
-        audio.play().catch(()=>{ /* algunos navegadores requieren interacción */ });
-      }
+        if (!intentado) {
+            intentado = true;
+            audio.currentTime = 0;
+            audio.play().then(() => {
+                eliminarBotonFallback();
+            }).catch(() => {
+                mostrarBotonFallback();
+            });
+        }
     }
-    // Se reproduce al primer toque/click en la tarjeta o cualquier parte de la pantalla
+
+    // Botón de respaldo solo si el navegador no deja autoplay ni con interacción normal
+    function mostrarBotonFallback() {
+        if (document.getElementById('boton-musica-fallback')) return; // No duplicar
+        const btn = document.createElement('button');
+        btn.id = 'boton-musica-fallback';
+        btn.innerHTML = '▶️ ACTIVAR MÚSICA';
+        btn.onclick = () => {
+            audio.play().then(eliminarBotonFallback);
+        };
+        document.body.appendChild(btn);
+    }
+
+    // Elimina el botón si la música ya está sonando
+    function eliminarBotonFallback() {
+        const btn = document.getElementById('boton-musica-fallback');
+        if (btn) btn.remove();
+    }
+
+    // Clicks en tarjeta y pantalla
     document.getElementById('mainCard').addEventListener('click',reproducirMusica);
     document.body.addEventListener('click',reproducirMusica);
     document.body.addEventListener('touchstart',reproducirMusica);
+
+    // Extra: fallback automático tras carga (por si todo falla, se intentará mostrar el botón)
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            if (!audio.paused) return;
+            mostrarBotonFallback();
+        }, 3500);
+    });
   </script>
 </body>
 </html>
