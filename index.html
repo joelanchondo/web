@@ -6,10 +6,8 @@
   <title>SANTIAGO XV - INVITACIÓN</title>
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* ESTILOS PRINCIPALES */
     html, body {
-      background: url('https://i.imgur.com/5gL7Y0l.jpeg') no-repeat center center fixed; /* URL externa como ejemplo */
-      background-size: cover;
+      background: #141414;
       min-height: 100vh;
       margin: 0;
       padding: 0;
@@ -24,6 +22,39 @@
       justify-content: flex-start;
       min-height: 100vh;
       overflow-x: hidden;
+      background: #141414 !important;
+    }
+    /* Corona centrada arriba de los títulos */
+    .corona-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: -18px;
+      margin-top: -22px;
+      z-index: 10;
+      position: relative;
+    }
+    .corona-img {
+      width: 62px;
+      height: auto;
+      filter: drop-shadow(0 4px 10px #000c);
+      z-index: 10;
+    }
+    /* Esquina superior izquierda */
+    .esquina-izquierda-sup {
+      position: absolute;
+      top: -32px;
+      left: -32px;
+      width: 65px;
+      height: auto;
+      z-index: 20;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 4px 10px #14141488);
+    }
+    @media (max-width: 600px) {
+      .corona-img { width: 38px; }
+      .esquina-izquierda-sup { width: 38px; top: -18px; left: -18px;}
     }
     .main-card {
       background: rgba(30,30,30,0.96);
@@ -164,8 +195,6 @@
       text-align: center;
       display: inline-block;
     }
-    
-    /* BOTÓN DE MÚSICA MEJORADO */
     #music-fallback-btn {
       position: fixed;
       bottom: 20px;
@@ -184,16 +213,13 @@
       font-family: 'Comic Neue', cursive;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      display: none; /* Oculto inicialmente */
+      display: none;
     }
-    
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-    
-    /* OVERLAY PARA CAPTURAR CLICKS */
     #music-overlay {
       position: fixed;
       top: 0;
@@ -206,12 +232,8 @@
       cursor: pointer;
       display: none;
     }
-    
-    /* ANIMACIONES */
     @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
     @keyframes popin { 0% { transform: scale(0.7); opacity:0; } 70% { transform: scale(1.08); opacity:1; } 100% { transform: scale(1); } }
-    
-    /* RESPONSIVE */
     @media (max-width: 700px) {
       .main-card { padding: 1.3rem 0.3rem 1.5rem 0.3rem; max-width: 98vw; gap: 1.3rem;}
       .titulo { font-size: 1.7rem; letter-spacing: 4px;}
@@ -240,9 +262,11 @@
   <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:5;"></canvas>
 
   <div class="main-card" id="mainCard">
-    <div class="img-pendiente">
-      <!-- Aquí va tu foto -->
-      <span>👦</span>
+    <!-- Esquina superior izquierda -->
+    <img src="esquina izquierda sup.jpg" class="esquina-izquierda-sup" alt="Decoración Esquina Izquierda Superior" loading="lazy" />
+    <!-- Corona centrada -->
+    <div class="corona-container">
+      <img src="corona.jpg" class="corona-img" alt="Corona" loading="lazy" />
     </div>
     <div class="titulo">MIS 15 AÑOS</div>
     <div class="titulo">SANTIAGO</div>
@@ -258,9 +282,7 @@
     <div class="banio">
       TAMBIÉN PUEDES TRAER TU TRAJE DE BAÑO 🩳🩱
     </div>
-    <div class="aviso-musica">
-     
-    </div>
+    <div class="aviso-musica"></div>
     <div class="contador-area">
       <div class="cuenta">FALTAN:</div>
       <div class="contador" id="contador">
@@ -270,15 +292,12 @@
         <span id="segundos">00</span>
       </div>
     </div>
-    <!-- Audio oculto -->
     <audio id="audio" src="yo-te-esperaba.mp3"></audio>
   </div>
-
-  <!-- Elementos para música -->
   <div id="music-overlay"></div>
   <button id="music-fallback-btn">🎵 ACTIVAR MÚSICA</button>
 
-  <!-- Confetti JS -->
+  <!-- Confetti JS (más lento) -->
   <script>
   function confettiParticle(ctx, x, y, r, c, v, a) {
     this.x = x; this.y = y; this.r = r; this.c = c; this.v = v; this.a = a;
@@ -294,7 +313,7 @@
     this.update = function() {
       this.y += this.v;
       this.x += Math.sin(this.y / 18)*1.3;
-      if(this.a > 0) this.a -= 0.003;
+      if(this.a > 0) this.a -= 0.0014; // más lento
     }
   }
   function startConfetti() {
@@ -305,7 +324,7 @@
     let colors = ['#72c2ff','#ffe066','#4fd1c5','#ffb300','#fff','#1976d2'];
     let particles = [];
     for(let i=0;i<90;i++){
-      let x = Math.random()*W, y=Math.random()*-H, r=7+Math.random()*8, c=colors[Math.floor(Math.random()*colors.length)], v=2+Math.random()*2, a=0.89+Math.random()*0.1;
+      let x = Math.random()*W, y=Math.random()*-H, r=7+Math.random()*8, c=colors[Math.floor(Math.random()*colors.length)], v=0.75+Math.random()*1.1, a=0.89+Math.random()*0.1;
       particles.push(new confettiParticle(ctx,x,y,r,c,v,a));
     }
     function draw() {
@@ -349,49 +368,33 @@
     const audio = document.getElementById('audio');
     const musicBtn = document.getElementById('music-fallback-btn');
     const musicOverlay = document.getElementById('music-overlay');
-    
-    // Configuración inicial
     audio.loop = true;
     let musicaIntentada = false;
-    
-    // Función para reproducir música
     function reproducirMusica() {
       if (musicaIntentada) return;
       musicaIntentada = true;
-      
       audio.play().then(() => {
-        // Éxito: ocultar elementos de fallback
         musicBtn.style.display = 'none';
         musicOverlay.style.display = 'none';
       }).catch(error => {
-        // Fallo: mostrar botón y overlay
         musicBtn.style.display = 'block';
         musicOverlay.style.display = 'block';
         console.log('Autoplay bloqueado:', error);
       });
     }
-    
-    // Eventos para activar música
     musicBtn.onclick = () => {
       audio.play();
       musicBtn.style.display = 'none';
       musicOverlay.style.display = 'none';
     };
-    
     musicOverlay.onclick = () => {
       audio.play();
       musicOverlay.style.display = 'none';
       musicBtn.style.display = 'none';
     };
-    
-    // Intentar reproducir al cargar (con retraso)
     setTimeout(reproducirMusica, 800);
-    
-    // También al hacer clic en cualquier lugar
     document.addEventListener('click', reproducirMusica, { once: true });
     document.addEventListener('touchstart', reproducirMusica, { once: true });
-    
-    // Fallback final si no se reprodujo después de 3 segundos
     setTimeout(() => {
       if (audio.paused) {
         musicBtn.style.display = 'block';
