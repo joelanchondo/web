@@ -4,139 +4,121 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SANTIAGO XV - INVITACIÓN</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* ESTILOS PRINCIPALES */
     html, body {
-      background: #141414;
+      background: linear-gradient(135deg, #141414 0%, #1e1e2f 100%);
       min-height: 100vh;
       margin: 0;
       padding: 0;
       font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
       color: #fff;
-      letter-spacing: 10px;
+      letter-spacing: 2.5px;
     }
     body {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      min-height: 100vh;
       overflow-x: hidden;
-      background: #141414 !important; /* Fondo asegurado */
     }
     .main-card {
-      background: rgba(30,30,30,0.96);
-      border-radius: 2.5rem;
-      box-shadow: 0 10px 40px #1976d241, 0 2px 8px #000a;
-      margin: 60px 0 24px 0;
-      padding: 3.2rem 2.5rem 2.5rem 2.5rem;
-      max-width: 540px;
+      background: linear-gradient(145deg, rgba(30,30,30,0.98), rgba(50,50,60,0.95));
+      border-radius: 2.8rem;
+      box-shadow: 0 12px 50px rgba(25, 118, 210, 0.3), 0 3px 10px rgba(0,0,0,0.2);
+      margin: 70px 0 30px 0;
+      padding: 3.5rem 2.8rem;
+      max-width: 560px;
       width: 94vw;
       position: relative;
-      animation: fadein 1.3s;
+      animation: fadein 1.5s ease-in-out;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2.1rem;
+      gap: 2.3rem;
+      border: 2px solid rgba(96, 170, 255, 0.2);
     }
     .img-pendiente {
-      width: 120px;
-      height: 120px;
-      background: #242c34;
-      border: 2.5px dashed #72c2ff;
+      width: 140px;
+      height: 140px;
+      background: linear-gradient(45deg, #242c34, #2e3744);
+      border: 3px double #72c2ff;
       border-radius: 50%;
-      margin: 0 auto 1.4rem auto;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #72c2ff;
-      font-size: 2.7rem;
-      opacity: 0.5;
-      animation: fadein 1.8s;
+      font-size: 3rem;
+      animation: pulse 2s infinite;
       text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(114, 194, 255, 0.3);
     }
     .titulo {
-      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
       color: #60aaff;
-      font-size: 2.8rem;
-      font-weight: bold;
-      letter-spacing: 7px;
-      margin-bottom: 1.2rem;
-      text-shadow: 0 3px 16px #1976d2b9;
-      animation: popin 1s;
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 4px 20px rgba(25, 118, 210, 0.8);
+      animation: popin 1.2s ease-out;
       text-transform: uppercase;
     }
     .detalle {
-      font-size: 1.17rem;
-      line-height: 2.1;
-      margin-bottom: 1.8rem;
+      font-size: 1.2rem;
+      line-height: 2.2;
       color: #e0eaff;
-      animation: fadein 2s;
-      text-align: justify;
+      animation: fadein 2.2s;
+      text-align: center;
       text-transform: uppercase;
-      letter-spacing: 2.5px;
-      max-width: 450px;
-      margin-left: auto;
-      margin-right: auto;
+      letter-spacing: 2.8px;
+      max-width: 480px;
     }
     .label {
       color: #4fd1c5;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
+      text-shadow: 0 1px 5px rgba(79, 209, 197, 0.4);
     }
     .regalo {
-      margin-top: 0.7rem;
-      background: rgba(48,48,48,0.92);
-      border-radius: 1.2rem;
-      padding: 1rem 1.2rem;
-      font-size: 1.10rem;
+      margin-top: 0.8rem;
+      background: linear-gradient(90deg, rgba(48,48,48,0.95), rgba(60,60,70,0.95));
+      border-radius: 1.4rem;
+      padding: 1.1rem 1.4rem;
+      font-size: 1.15rem;
       color: #ffe066;
-      display: inline-block;
-      box-shadow: 0 1px 8px #0004;
-      animation: fadein 2.2s;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      animation: fadein 2.4s;
       text-transform: uppercase;
-      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-      letter-spacing: 2.5px;
+      transition: transform 0.3s ease;
+    }
+    .regalo:hover {
+      transform: scale(1.03);
     }
     .banio {
-      background: rgba(38,38,38,0.96);
-      border: 1.5px dashed #60aaff;
-      border-radius: 1.5rem;
-      margin: 1.4rem 0 1.3rem 0;
-      font-size: 1.07rem;
+      background: linear-gradient(90deg, rgba(38,38,38,0.95), rgba(50,50,60,0.95));
+      border: 2px dashed #60aaff;
+      border-radius: 1.6rem;
+      font-size: 1.1rem;
       color: #60aaff;
       font-style: italic;
-      padding: 0.95rem 1.1rem;
-      animation: fadein 2.3s;
+      padding: 1rem 1.3rem;
+      animation: fadein 2.5s;
       text-transform: uppercase;
-      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-      letter-spacing: 2.5px;
+      transition: transform 0.3s ease;
     }
-    .aviso-musica {
-      font-size: 0.97rem;
-      color: #ffe066cc;
-      margin-top: 1.8rem;
-      margin-bottom: -10px;
-      letter-spacing: 2.5px;
-      text-align: center;
-      font-style: italic;
-      opacity: 0.86;
-      text-transform: uppercase;
+    .banio:hover {
+      transform: scale(1.03);
     }
     .cuenta {
-      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-      font-size: 1.19rem;
+      font-size: 1.25rem;
       color: #ffb300;
-      margin: 0 0 0.4rem 0;
-      animation: popin 1.2s;
+      animation: popin 1.3s;
       text-transform: uppercase;
-      letter-spacing: 2.5px;
+      letter-spacing: 2.8px;
       text-align: center;
     }
     .contador-area {
-      margin-top: 2.3rem;
+      margin-top: 2.5rem;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -145,124 +127,68 @@
     .contador {
       display: flex;
       justify-content: center;
-      gap: 0.8rem;
-      font-size: 1.3rem;
+      gap: 1rem;
+      font-size: 1.4rem;
       font-weight: bold;
       color: #72c2ff;
-      margin-bottom: 0.3rem;
-      animation: popin 1.2s;
-      letter-spacing: 3px;
+      animation: popin 1.3s;
+      letter-spacing: 3.5px;
     }
     .contador span {
-      background: #283646;
-      border-radius: 1.1rem;
-      padding: 0.28em 0.9em;
-      min-width: 36px;
-      box-shadow: 0 1px 8px #0003;
-      font-size: 1.14em;
-      letter-spacing: 1.5px;
+      background: linear-gradient(45deg, #283646, #324157);
+      border-radius: 1.3rem;
+      padding: 0.35em 1em;
+      min-width: 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      font-size: 1.2em;
+      letter-spacing: 2px;
       text-align: center;
-      display: inline-block;
     }
-    
-    /* BOTÓN DE MÚSICA MEJORADO */
-    #music-fallback-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #1976d2 0%, #4fd1c5 100%);
-      color: white !important;
-      padding: 12px 18px;
-      border-radius: 30px;
-      z-index: 9999;
-      font-size: 15px;
-      font-weight: bold;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      border: none;
-      cursor: pointer;
-      animation: pulse 2s infinite;
-      font-family: 'Comic Neue', cursive;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      display: none; /* Oculto inicialmente */
-    }
-    
+    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes popin { 0% { transform: scale(0.7); opacity:0; } 70% { transform: scale(1.08); opacity:1; } 100% { transform: scale(1); } }
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-    
-    /* OVERLAY PARA CAPTURAR CLICKS */
-    #music-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 9998;
-      opacity: 0;
-      background: transparent;
-      cursor: pointer;
-      display: none;
-    }
-    
-    /* ANIMACIONES */
-    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes popin { 0% { transform: scale(0.7); opacity:0; } 70% { transform: scale(1.08); opacity:1; } 100% { transform: scale(1); } }
-    
-    /* RESPONSIVE */
     @media (max-width: 700px) {
-      .main-card { padding: 1.3rem 0.3rem 1.5rem 0.3rem; max-width: 98vw; gap: 1.3rem;}
-      .titulo { font-size: 1.7rem; letter-spacing: 4px;}
-      .banio, .regalo { font-size: 0.95rem; }
-      .detalle { font-size: 0.97rem; }
-      .cuenta { font-size: 0.91rem; }
-      .contador { font-size: 0.85rem; gap: 0.3rem;}
-      .contador span { min-width: 19px; font-size: 1em;}
-      .img-pendiente { width: 62px; height: 62px; font-size: 1.3rem;}
-      .contador-area { margin-top: 0.7rem; }
-      #music-fallback-btn { padding: 10px 15px; font-size: 13px; }
+      .main-card { padding: 1.5rem 0.5rem 1.7rem 0.5rem; max-width: 98vw; gap: 1.5rem;}
+      .titulo { font-size: 2rem; letter-spacing: 2px;}
+      .banio, .regalo { font-size: 1rem; }
+      .detalle { font-size: 1rem; }
+      .cuenta { font-size: 0.95rem; }
+      .contador { font-size: 0.9rem; gap: 0.4rem;}
+      .contador span { min-width: 20px; font-size: 1.05em;}
+      .img-pendiente { width: 70px; height: 70px; font-size: 1.5rem;}
+      .contador-area { margin-top: 1rem; }
     }
     @media (max-width: 480px) {
-      .main-card { gap: 0.9rem; }
-      .detalle { font-size: 0.89rem; }
-      .banio, .regalo { font-size: 0.83rem; padding: 0.7rem 0.6rem;}
-      .contador { font-size: 0.75rem;}
-      .contador span { min-width: 16px;}
-      .cuenta { font-size: 0.83rem;}
-      #music-fallback-btn { bottom: 15px; right: 15px; }
+      .main-card { gap: 1rem; }
+      .detalle { font-size: 0.92rem; }
+      .banio, .regalo { font-size: 0.88rem; padding: 0.8rem 0.7rem;}
+      .contador { font-size: 0.8rem;}
+      .contador span { min-width: 18px;}
+      .cuenta { font-size: 0.88rem;}
     }
   </style>
 </head>
 <body>
-  <!-- Confetti Canvas -->
   <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:5;"></canvas>
 
   <div class="main-card" id="mainCard">
     <div class="img-pendiente">
-      <!-- Aquí va tu foto -->
       <span>👦</span>
     </div>
-    <div class="titulo">MIS 15 AÑOS</div>
-    <div class="titulo">SANTIAGO</div>
+    <div class="titulo">Santiago XV</div>
     <div class="detalle">
-      ¡¡¡TE INVITO A CELEBRAR MI FIESTA DE 15 AÑOS!!! 
-      <span class="label">FECHA:</span> 16 DE AGOSTO DEL 2025.<br>
-      <span class="label">LUGAR:</span> XXXXXXXX<br>
-      <span class="label">HORA:</span> 8:00 PM A 1:00 AM
+      Te invito a celebrar mi fiesta de 15 años que se llevará a cabo el día <span class="label">16 de agosto del 2025</span>.<br>
+      <span class="label">Dirección:</span> XXXXXXXX<br>
+      <span class="label">Horario:</span> 8:00 PM a 1:00 AM
     </div>
-    <div class="regalo">
-      REGALO SUGERIDO: EFECTIVO
-    </div>
-    <div class="banio">
-      TAMBIÉN PUEDES TRAER TU TRAJE DE BAÑO 🩳🩱
-    </div>
-    <div class="aviso-musica">
-     
-    </div>
+    <div class="regalo">Regalo sugerido: Efectivo</div>
+    <div class="banio">También puedes traer tu traje de baño 🩳🩱</div>
     <div class="contador-area">
-      <div class="cuenta">FALTAN:</div>
+      <div class="cuenta">Faltan:</div>
       <div class="contador" id="contador">
         <span id="dias">00</span>:
         <span id="horas">00</span>:
@@ -270,58 +196,60 @@
         <span id="segundos">00</span>
       </div>
     </div>
-    <!-- Audio oculto -->
-    <audio id="audio" src="yo-te-esperaba.mp3"></audio>
+    <audio id="audio" loop>
+      <source src="https://www.toneden.io/toneden/post/yo-te-esperaba-sample" type="audio/mpeg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
   </div>
 
-  <!-- Elementos para música -->
-  <div id="music-overlay"></div>
-  <button id="music-fallback-btn">🎵 ACTIVAR MÚSICA</button>
-
-  <!-- Confetti JS -->
+  <!-- Confetti -->
   <script>
-  function confettiParticle(ctx, x, y, r, c, v, a) {
-    this.x = x; this.y = y; this.r = r; this.c = c; this.v = v; this.a = a;
-    this.draw = function() {
-      ctx.save();
-      ctx.globalAlpha = this.a;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
-      ctx.fillStyle = this.c;
-      ctx.fill();
-      ctx.restore();
-    }
-    this.update = function() {
-      this.y += this.v;
-      this.x += Math.sin(this.y / 18)*1.3;
-      if(this.a > 0) this.a -= 0.003;
-    }
-  }
-  function startConfetti() {
-    const canvas = document.getElementById('confetti-canvas');
-    const ctx = canvas.getContext('2d');
-    let W = window.innerWidth, H = window.innerHeight;
-    canvas.width = W; canvas.height = H;
-    let colors = ['#72c2ff','#ffe066','#4fd1c5','#ffb300','#fff','#1976d2'];
-    let particles = [];
-    for(let i=0;i<90;i++){
-      let x = Math.random()*W, y=Math.random()*-H, r=7+Math.random()*8, c=colors[Math.floor(Math.random()*colors.length)], v=2+Math.random()*2, a=0.89+Math.random()*0.1;
-      particles.push(new confettiParticle(ctx,x,y,r,c,v,a));
-    }
-    function draw() {
-      ctx.clearRect(0,0,W,H);
-      for(let p of particles) {
-        p.draw(); p.update();
-        if(p.y > H || p.a <= 0) {
-          p.y = Math.random()*-50; p.a=0.89+Math.random()*0.1; p.x=Math.random()*W;
-        }
+    function confettiParticle(ctx, x, y, r, c, v, a) {
+      this.x = x; this.y = y; this.r = r; this.c = c; this.v = v; this.a = a;
+      this.draw = function() {
+        ctx.save();
+        ctx.globalAlpha = this.a;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+        ctx.fillStyle = this.c;
+        ctx.fill();
+        ctx.restore();
       }
-      requestAnimationFrame(draw);
+      this.update = function() {
+        this.y += this.v;
+        this.x += Math.sin(this.y / 25) * 0.8; // Reduced sway for smoother motion
+        if(this.a > 0) this.a -= 0.0015; // Slower alpha decay for smoother fading
+      }
     }
-    draw();
-  }
-  window.onload = startConfetti;
-  window.onresize = ()=>{document.getElementById('confetti-canvas').width=window.innerWidth;document.getElementById('confetti-canvas').height=window.innerHeight;}
+    function startConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      const ctx = canvas.getContext('2d');
+      let W = window.innerWidth, H = window.innerHeight;
+      canvas.width = W; canvas.height = H;
+      let colors = ['#72c2ff','#ffe066','#4fd1c5','#ffb300','#fff','#1976d2'];
+      let particles = [];
+      for(let i=0; i<100; i++) {
+        let x = Math.random()*W, y=Math.random()*-H, r=8+Math.random()*10, c=colors[Math.floor(Math.random()*colors.length)], v=1.5+Math.random()*1, a=0.9+Math.random()*0.1; // Reduced velocity for slower fall
+        particles.push(new confettiParticle(ctx, x, y, r, c, v, a));
+      }
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        for (let p of particles) {
+          p.draw(); p.update();
+          if (p.y > H || p.a <= 0) {
+            p.y = Math.random() * -50; p.a = 0.9 + Math.random() * 0.1; p.x = Math.random() * W;
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+    window.onload = startConfetti;
+    window.onresize = () => {
+      const canvas = document.getElementById('confetti-canvas');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
   </script>
 
   <!-- Cuenta regresiva -->
@@ -331,10 +259,10 @@
       const ahora = new Date();
       let d = Math.floor((fechaEvento - ahora) / 1000);
       if (d < 0) d = 0;
-      const dias = String(Math.floor(d/86400)).padStart(2,'0');
-      const horas = String(Math.floor((d%86400)/3600)).padStart(2,'0');
-      const minutos = String(Math.floor((d%3600)/60)).padStart(2,'0');
-      const segundos = String(d%60).padStart(2,'0');
+      const dias = String(Math.floor(d / 86400)).padStart(2, '0');
+      const horas = String(Math.floor((d % 86400) / 3600)).padStart(2, '0');
+      const minutos = String(Math.floor((d % 3600) / 60)).padStart(2, '0');
+      const segundos = String(d % 60).padStart(2, '0');
       document.getElementById('dias').textContent = dias;
       document.getElementById('horas').textContent = horas;
       document.getElementById('minutos').textContent = minutos;
@@ -344,59 +272,26 @@
     actualizarContador();
   </script>
 
-  <!-- Sistema de música mejorado -->
+  <!-- Música -->
   <script>
     const audio = document.getElementById('audio');
-    const musicBtn = document.getElementById('music-fallback-btn');
-    const musicOverlay = document.getElementById('music-overlay');
-    
-    // Configuración inicial
-    audio.loop = true;
-    let musicaIntentada = false;
-    
-    // Función para reproducir música
-    function reproducirMusica() {
-      if (musicaIntentada) return;
-      musicaIntentada = true;
-      
-      audio.play().then(() => {
-        // Éxito: ocultar elementos de fallback
-        musicBtn.style.display = 'none';
-        musicOverlay.style.display = 'none';
-      }).catch(error => {
-        // Fallo: mostrar botón y overlay
-        musicBtn.style.display = 'block';
-        musicOverlay.style.display = 'block';
-        console.log('Autoplay bloqueado:', error);
-      });
-    }
-    
-    // Eventos para activar música
-    musicBtn.onclick = () => {
-      audio.play();
-      musicBtn.style.display = 'none';
-      musicOverlay.style.display = 'none';
-    };
-    
-    musicOverlay.onclick = () => {
-      audio.play();
-      musicOverlay.style.display = 'none';
-      musicBtn.style.display = 'none';
-    };
-    
-    // Intentar reproducir al cargar (con retraso)
-    setTimeout(reproducirMusica, 800);
-    
-    // También al hacer clic en cualquier lugar
-    document.addEventListener('click', reproducirMusica, { once: true });
-    document.addEventListener('touchstart', reproducirMusica, { once: true });
-    
-    // Fallback final si no se reprodujo después de 3 segundos
-    setTimeout(() => {
-      if (audio.paused) {
-        musicBtn.style.display = 'block';
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+      } else {
+        audio.play().then(() => {
+          isPlaying = true;
+        }).catch(err => {
+          console.log("🎵 Error al reproducir: ", err);
+        });
       }
-    }, 3000);
+    }
+
+    window.addEventListener('click', toggleMusic);
+    window.addEventListener('touchstart', toggleMusic);
   </script>
 </body>
 </html>
