@@ -2,96 +2,258 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Santiago - Invitación XV años</title>
-  <!-- Comic Sans para el título -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Santiago XV - Invitación</title>
+  <!-- Fuente Comic Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
-      background: #000;
-      color: #fff;
+      background: #141414;
       min-height: 100vh;
+      margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      margin: 0;
+      justify-content: flex-start;
+      color: #fff;
+      overflow-x: hidden;
     }
-    .container {
-      background: rgba(20,20,20,0.90);
-      border-radius: 28px;
-      box-shadow: 0 6px 32px #2228;
-      padding: 2.5rem 2rem 2rem 2rem;
+    .main-card {
+      background: rgba(30,30,30,0.96);
+      border-radius: 2.5rem;
+      box-shadow: 0 10px 40px #1976d241, 0 2px 8px #000a;
+      margin: 50px 0 24px 0;
+      padding: 2.2rem 2.1rem 1.8rem 2.1rem;
       max-width: 400px;
-      margin-top: 40px;
-      margin-bottom: 40px;
+      width: 95vw;
+      text-align: center;
+      position: relative;
+      animation: fadein 1.3s;
     }
     .titulo {
       font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-      font-size: 2.6rem;
-      color: #72c2ff;
-      letter-spacing: 2px;
-      text-align: center;
-      margin-bottom: 1.3rem;
-      text-shadow: 0 3px 12px #44abe7;
+      color: #60aaff;
+      font-size: 2.8rem;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 1.1rem;
+      text-shadow: 0 3px 16px #1976d2b9;
+      animation: popin 1s;
     }
     .detalle {
-      font-size: 1.15rem;
+      font-size: 1.21rem;
       line-height: 1.7;
-      margin-bottom: 0.8rem;
-      text-align: center;
+      margin-bottom: 1.2rem;
+      color: #e0eaff;
+      animation: fadein 2s;
     }
     .label {
-      color: #36e6e6;
-      font-weight: bold;
-      font-size: 1.07rem;
+      color: #4fd1c5;
+      font-weight: 600;
     }
-    .separador {
-      border-top: 1.5px solid #222;
-      margin: 1.8rem 0 1.3rem 0;
+    .regalo {
+      margin-top: 0.7rem;
+      background: rgba(48,48,48,0.92);
+      border-radius: 1.2rem;
+      padding: 0.7rem 0.5rem;
+      font-size: 1.09rem;
+      color: #ffe066;
+      display: inline-block;
+      box-shadow: 0 1px 8px #0004;
+      animation: fadein 2.2s;
     }
     .banio {
-      background: rgba(40,40,40,0.95);
-      border: 1px dashed #72c2ff;
-      border-radius: 18px;
-      padding: 0.8rem 1rem;
-      margin: 1.5rem 0 1rem 0;
-      color: #72c2ff;
-      font-size: 1.08rem;
+      background: rgba(38,38,38,0.96);
+      border: 1px dashed #60aaff;
+      border-radius: 1.2rem;
+      margin: 1.2rem 0 1.1rem 0;
+      font-size: 1.09rem;
+      color: #60aaff;
       font-style: italic;
-      text-align: center;
-      box-shadow: 0 2px 10px #0006;
-      letter-spacing: 0.5px;
+      padding: 0.7rem 0.5rem;
+      animation: fadein 2.3s;
     }
-    @media (max-width: 500px) {
-      .container { max-width: 95vw; padding: 1rem; }
+    .cuenta {
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+      font-size: 1.6rem;
+      color: #ffb300;
+      margin: 1.3rem 0 0.6rem 0;
+      animation: popin 1.2s;
+    }
+    .contador {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #72c2ff;
+      margin-bottom: 1.3rem;
+      animation: popin 1.2s;
+    }
+    .contador span {
+      background: #283646;
+      border-radius: 1.3rem;
+      padding: 0.45em 1.1em;
+      min-width: 55px;
+      box-shadow: 0 1px 8px #0003;
+    }
+    .musica-btn {
+      margin-top: 1.1rem;
+      background: linear-gradient(90deg,#1976d2,#4fd1c5);
+      color: #fff;
+      border: none;
+      border-radius: 2.5rem;
+      padding: 0.7rem 2.1rem;
+      font-size: 1.15rem;
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+      font-weight: 700;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 1px 8px #0005;
+      animation: fadein 2.4s;
+    }
+    .musica-btn:hover {
+      background: linear-gradient(90deg,#4fd1c5,#1976d2);
+      transform: scale(1.06);
+    }
+    .img-pendiente {
+      width: 110px;
+      height: 110px;
+      background: #242c34;
+      border: 2px dashed #72c2ff;
+      border-radius: 50%;
+      margin: 0 auto 1.3rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #72c2ff;
+      font-size: 2rem;
+      opacity: 0.5;
+      animation: fadein 1.8s;
+    }
+    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes popin { 0% { transform: scale(0.7); opacity:0; } 70% { transform: scale(1.08); opacity:1; } 100% { transform: scale(1); } }
+    @media (max-width: 480px) {
+      .main-card { padding: 1.1rem 0.2rem; }
       .titulo { font-size: 2rem; }
+      .contador { font-size: 1.3rem; gap: 0.5rem; }
+      .cuenta { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:5;"></canvas>
+
+  <div class="main-card">
+    <div class="img-pendiente">
+      <!-- Aquí va tu foto en el futuro -->
+      <span>👦</span>
+    </div>
     <div class="titulo">Santiago</div>
     <div class="detalle">
-      TE INVITO A CELEBRAR MI FIESTA DE 15 AÑOS QUE SE LLEVARÁ A CABO EL DÍA <span class="label">16 de Agosto del 2025</span>.<br>
+      Te invito a celebrar mi fiesta de 15 años que se llevará a cabo el día <span class="label">16 de agosto del 2025</span>.<br>
       <span class="label">Dirección:</span> xxxxxxxx<br>
-      <span class="label">Horario:</span> 8:00 pm a 1:00 am<br>
-      <span class="label">Regalo:</span> Efectivo
+      <span class="label">Horario:</span> 8:00 pm a 1:00 am
     </div>
-    <div class="separador"></div>
+    <div class="regalo">
+      Regalo sugerido: <b>efectivo</b>
+    </div>
     <div class="banio">
       También puedes traer tu <b>traje de baño</b> 🩳🩱
     </div>
-    <div class="separador"></div>
-    <div style="text-align:center;margin:14px 0;">
-      <b>Canción especial:</b>
-      <br>
-      <!-- SoundCloud embed -->
-      <iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/michell02/sets/te-esperaba-carlos-rivera&color=%2372c2ff&auto_play=false&show_artwork=true">
-      </iframe>
+    <div class="cuenta">Faltan:</div>
+    <div class="contador" id="contador">
+      <span id="dias">00</span>:
+      <span id="horas">00</span>:
+      <span id="minutos">00</span>:
+      <span id="segundos">00</span>
     </div>
+    <button class="musica-btn" onclick="tocarMusica()">▶ Escuchar canción especial</button>
+    <audio id="audio" src="yo-te-esperaba.mp3"></audio>
   </div>
+
+  <!-- Confetti JS -->
+  <script>
+  // Confetti simple
+  function confettiParticle(ctx, x, y, r, c, v, a) {
+    this.x = x; this.y = y; this.r = r; this.c = c; this.v = v; this.a = a;
+    this.draw = function() {
+      ctx.save();
+      ctx.globalAlpha = this.a;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+      ctx.fillStyle = this.c;
+      ctx.fill();
+      ctx.restore();
+    }
+    this.update = function() {
+      this.y += this.v;
+      this.x += Math.sin(this.y / 18)*1.3;
+      if(this.a > 0) this.a -= 0.003;
+    }
+  }
+  function startConfetti() {
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    let W = window.innerWidth, H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+    let colors = ['#72c2ff','#ffe066','#4fd1c5','#ffb300','#fff','#1976d2'];
+    let particles = [];
+    for(let i=0;i<90;i++){
+      let x = Math.random()*W, y=Math.random()*-H, r=7+Math.random()*8, c=colors[Math.floor(Math.random()*colors.length)], v=2+Math.random()*2, a=0.89+Math.random()*0.1;
+      particles.push(new confettiParticle(ctx,x,y,r,c,v,a));
+    }
+    function draw() {
+      ctx.clearRect(0,0,W,H);
+      for(let p of particles) {
+        p.draw(); p.update();
+        if(p.y > H || p.a <= 0) {
+          p.y = Math.random()*-50; p.a=0.89+Math.random()*0.1; p.x=Math.random()*W;
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  }
+  window.onload = startConfetti;
+  window.onresize = ()=>{document.getElementById('confetti-canvas').width=window.innerWidth;document.getElementById('confetti-canvas').height=window.innerHeight;}
+  </script>
+
+  <!-- Cuenta regresiva -->
+  <script>
+    // Fecha objetivo: 16 agosto 2025, 20:00
+    const fechaEvento = new Date('2025-08-16T20:00:00');
+    function actualizarContador() {
+      const ahora = new Date();
+      let d = Math.floor((fechaEvento - ahora) / 1000);
+      if (d < 0) d = 0;
+      const dias = String(Math.floor(d/86400)).padStart(2,'0');
+      const horas = String(Math.floor((d%86400)/3600)).padStart(2,'0');
+      const minutos = String(Math.floor((d%3600)/60)).padStart(2,'0');
+      const segundos = String(d%60).padStart(2,'0');
+      document.getElementById('dias').textContent = dias;
+      document.getElementById('horas').textContent = horas;
+      document.getElementById('minutos').textContent = minutos;
+      document.getElementById('segundos').textContent = segundos;
+    }
+    setInterval(actualizarContador, 1000);
+    actualizarContador();
+  </script>
+
+  <!-- Música -->
+  <script>
+    function tocarMusica() {
+      const audio = document.getElementById('audio');
+      if(audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    }
+  </script>
 </body>
 </html>
