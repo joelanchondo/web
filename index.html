@@ -1,359 +1,67 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SANTIAGO XV - INVITACIÓN</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
-  <style>
-    html, body {
-      background: #141414;
-      min-height: 100vh;
-      margin: 0;
-      padding: 0;
-      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-      color: #fff;
-      letter-spacing: 2.5px;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-    .main-card {
-      background: rgba(30,30,30,0.96);
-      border-radius: 2.5rem;
-      box-shadow: 0 10px 40px #1976d241, 0 2px 8px #000a;
-      margin: 60px 0 24px 0;
-      padding: 3.2rem 2.5rem 2.5rem 2.5rem;
-      max-width: 540px;
-      width: 94vw;
-      position: relative;
-      animation: fadein 1.3s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2.1rem;
-    }
-    .img-pendiente {
-      width: 120px;
-      height: 120px;
-      background: #242c34;
-      border: 2.5px dashed #72c2ff;
-      border-radius: 50%;
-      margin: 0 auto 1.4rem auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #72c2ff;
-      font-size: 2.7rem;
-      opacity: 0.5;
-      animation: fadein 1.8s;
-      text-transform: uppercase;
-    }
-    .titulo {
-      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-      color: #60aaff;
-      font-size: 2.8rem;
-      font-weight: bold;
-      letter-spacing: 7px;
-      margin-bottom: 1.2rem;
-      text-shadow: 0 3px 16px #1976d2b9;
-      animation: popin 1s;
-      text-transform: uppercase;
-    }
-    .detalle {
-      font-size: 1.17rem;
-      line-height: 2.1;
-      margin-bottom: 1.8rem;
-      color: #e0eaff;
-      animation: fadein 2s;
-      text-align: justify;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      max-width: 450px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .label {
-      color: #4fd1c5;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-    }
-    .regalo {
-      margin-top: 0.7rem;
-      background: rgba(48,48,48,0.92);
-      border-radius: 1.2rem;
-      padding: 1rem 1.2rem;
-      font-size: 1.10rem;
-      color: #ffe066;
-      display: inline-block;
-      box-shadow: 0 1px 8px #0004;
-      animation: fadein 2.2s;
-      text-transform: uppercase;
-      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-      letter-spacing: 2.5px;
-    }
-    .banio {
-      background: rgba(38,38,38,0.96);
-      border: 1.5px dashed #60aaff;
-      border-radius: 1.5rem;
-      margin: 1.4rem 0 1.3rem 0;
-      font-size: 1.07rem;
-      color: #60aaff;
-      font-style: italic;
-      padding: 0.95rem 1.1rem;
-      animation: fadein 2.3s;
-      text-transform: uppercase;
-      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-      letter-spacing: 2.5px;
-    }
-    .aviso-musica {
-      font-size: 0.97rem;
-      color: #ffe066cc;
-      margin-top: 1.8rem;
-      margin-bottom: -10px;
-      letter-spacing: 2.5px;
-      text-align: center;
-      font-style: italic;
-      opacity: 0.86;
-      text-transform: uppercase;
-    }
-    .cuenta {
-      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
-      font-size: 1.19rem;
-      color: #ffb300;
-      margin: 0 0 0.4rem 0;
-      animation: popin 1.2s;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      text-align: center;
-    }
-    .contador-area {
-      margin-top: 2.3rem;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .contador {
-      display: flex;
-      justify-content: center;
-      gap: 0.8rem;
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #72c2ff;
-      margin-bottom: 0.3rem;
-      animation: popin 1.2s;
-      letter-spacing: 3px;
-    }
-    .contador span {
-      background: #283646;
-      border-radius: 1.1rem;
-      padding: 0.28em 0.9em;
-      min-width: 36px;
-      box-shadow: 0 1px 8px #0003;
-      font-size: 1.14em;
-      letter-spacing: 1.5px;
-      text-align: center;
-      display: inline-block;
-    }
-    /* Botón fallback música */
-    #boton-musica-fallback {
-      position: fixed;
-      bottom: 24px;
-      right: 18px;
-      background: rgba(25, 118, 210, 0.85);
-      color: #fff;
-      padding: 13px 15px 13px 15px;
-      border-radius: 50%;
-      font-size: 1.35rem;
-      z-index: 9999;
-      box-shadow: 0 2px 12px #0007;
-      border: none;
-      cursor: pointer;
-      letter-spacing: 2.5px;
-      opacity: 0.75;
-      transition: background 0.2s, opacity 0.2s;
-      outline: none;
-    }
-    #boton-musica-fallback:hover {
-      background: #4fd1c5;
-      opacity: 1;
-    }
-    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes popin { 0% { transform: scale(0.7); opacity:0; } 70% { transform: scale(1.08); opacity:1; } 100% { transform: scale(1); } }
-    @media (max-width: 700px) {
-      .main-card { padding: 1.3rem 0.3rem 1.5rem 0.3rem; max-width: 98vw; gap: 1.3rem;}
-      .titulo { font-size: 1.7rem; letter-spacing: 4px;}
-      .banio, .regalo { font-size: 0.95rem; }
-      .detalle { font-size: 0.97rem; }
-      .cuenta { font-size: 0.91rem; }
-      .contador { font-size: 0.85rem; gap: 0.3rem;}
-      .contador span { min-width: 19px; font-size: 1em;}
-      .img-pendiente { width: 62px; height: 62px; font-size: 1.3rem;}
-      .contador-area { margin-top: 0.7rem; }
-    }
-    @media (max-width: 480px) {
-      .main-card { gap: 0.9rem; }
-      .detalle { font-size: 0.89rem; }
-      .banio, .regalo { font-size: 0.83rem; padding: 0.7rem 0.6rem;}
-      .contador { font-size: 0.75rem;}
-      .contador span { min-width: 16px;}
-      .cuenta { font-size: 0.83rem;}
-    }
-  </style>
-</head>
-<body>
-  <!-- Confetti Canvas -->
-  <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:5;"></canvas>
-
-  <div class="main-card" id="mainCard">
-    <div class="img-pendiente">
-      <!-- Aquí va tu foto en el futuro -->
-      <span>👦</span>
-    </div>
-    <div class="titulo">SANTIAGO</div>
-    <div class="detalle">
-      TE INVITO A CELEBRAR MI FIESTA DE 15 AÑOS QUE SE LLEVARÁ A CABO EL DÍA <span class="label">16 DE AGOSTO DEL 2025</span>.<br>
-      <span class="label">DIRECCIÓN:</span> XXXXXXXX<br>
-      <span class="label">HORARIO:</span> 8:00 PM A 1:00 AM
-    </div>
-    <div class="regalo">
-      REGALO SUGERIDO: EFECTIVO
-    </div>
-    <div class="banio">
-      TAMBIÉN PUEDES TRAER TU TRAJE DE BAÑO 🩳🩱
-    </div>
-    <div class="aviso-musica">
-      TOCA CUALQUIER PARTE DE LA PANTALLA PARA ESCUCHAR LA MÚSICA
-    </div>
-    <!-- Contador abajo, más aireado -->
-    <div class="contador-area">
-      <div class="cuenta">FALTAN:</div>
-      <div class="contador" id="contador">
-        <span id="dias">00</span>:
-        <span id="horas">00</span>:
-        <span id="minutos">00</span>:
-        <span id="segundos">00</span>
-      </div>
-    </div>
-    <audio id="audio" src="yo-te-esperaba.mp3"></audio>
-  </div>
-
-  <!-- Confetti JS -->
-  <script>
-  function confettiParticle(ctx, x, y, r, c, v, a) {
-    this.x = x; this.y = y; this.r = r; this.c = c; this.v = v; this.a = a;
-    this.draw = function() {
-      ctx.save();
-      ctx.globalAlpha = this.a;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
-      ctx.fillStyle = this.c;
-      ctx.fill();
-      ctx.restore();
-    }
-    this.update = function() {
-      this.y += this.v;
-      this.x += Math.sin(this.y / 18)*1.3;
-      if(this.a > 0) this.a -= 0.003;
-    }
-  }
-  function startConfetti() {
-    const canvas = document.getElementById('confetti-canvas');
-    const ctx = canvas.getContext('2d');
-    let W = window.innerWidth, H = window.innerHeight;
-    canvas.width = W; canvas.height = H;
-    let colors = ['#72c2ff','#ffe066','#4fd1c5','#ffb300','#fff','#1976d2'];
-    let particles = [];
-    for(let i=0;i<90;i++){
-      let x = Math.random()*W, y=Math.random()*-H, r=7+Math.random()*8, c=colors[Math.floor(Math.random()*colors.length)], v=2+Math.random()*2, a=0.89+Math.random()*0.1;
-      particles.push(new confettiParticle(ctx,x,y,r,c,v,a));
-    }
-    function draw() {
-      ctx.clearRect(0,0,W,H);
-      for(let p of particles) {
-        p.draw(); p.update();
-        if(p.y > H || p.a <= 0) {
-          p.y = Math.random()*-50; p.a=0.89+Math.random()*0.1; p.x=Math.random()*W;
-        }
-      }
-      requestAnimationFrame(draw);
-    }
-    draw();
-  }
-  window.onload = startConfetti;
-  window.onresize = ()=>{document.getElementById('confetti-canvas').width=window.innerWidth;document.getElementById('confetti-canvas').height=window.innerHeight;}
-  </script>
-
-  <!-- Cuenta regresiva -->
-  <script>
-    // Fecha objetivo: 16 agosto 2025, 20:00
-    const fechaEvento = new Date('2025-08-16T20:00:00');
-    function actualizarContador() {
-      const ahora = new Date();
-      let d = Math.floor((fechaEvento - ahora) / 1000);
-      if (d < 0) d = 0;
-      const dias = String(Math.floor(d/86400)).padStart(2,'0');
-      const horas = String(Math.floor((d%86400)/3600)).padStart(2,'0');
-      const minutos = String(Math.floor((d%3600)/60)).padStart(2,'0');
-      const segundos = String(d%60).padStart(2,'0');
-      document.getElementById('dias').textContent = dias;
-      document.getElementById('horas').textContent = horas;
-      document.getElementById('minutos').textContent = minutos;
-      document.getElementById('segundos').textContent = segundos;
-    }
-    setInterval(actualizarContador, 1000);
-    actualizarContador();
-  </script>
-
-  <!-- Música oculta & botón fallback discreto -->
-  <script>
-    const audio = document.getElementById('audio');
-    let intentado = false;
-
-    function reproducirMusica() {
-        if (!intentado) {
-            intentado = true;
-            audio.currentTime = 0;
-            audio.play().then(() => {
-                eliminarBotonFallback();
-            }).catch(() => {
-                mostrarBotonFallback();
-            });
-        }
-    }
-    function mostrarBotonFallback() {
-        if (document.getElementById('boton-musica-fallback')) return;
-        const btn = document.createElement('button');
-        btn.id = 'boton-musica-fallback';
-        btn.title = 'Activar música';
-        btn.innerHTML = '🎵';
-        btn.onclick = () => {
-            audio.play().then(eliminarBotonFallback);
+<!-- Reemplaza TODO el <script> de música por este código mejorado -->
+<script>
+  const audio = new Audio('yo-te-esperaba.mp3');
+  audio.loop = true;
+  
+  // Estrategia de autoplay mejorada
+  function iniciarMusica() {
+    // Intenta reproducir inmediatamente (funciona en desktop)
+    const promesa = audio.play();
+    
+    // Maneja el error si el autoplay está bloqueado
+    if (promesa !== undefined) {
+      promesa.catch(() => {
+        // Crea un botón invisible que cubre toda la pantalla
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.zIndex = '9998';
+        overlay.style.opacity = '0';
+        overlay.id = 'music-overlay';
+        
+        overlay.onclick = () => {
+          audio.play();
+          overlay.remove();
+          document.getElementById('music-fallback-btn')?.remove();
         };
-        document.body.appendChild(btn);
+        
+        document.body.appendChild(overlay);
+        
+        // Muestra instrucción discreta en móviles
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+          const btn = document.createElement('div');
+          btn.id = 'music-fallback-btn';
+          btn.style.position = 'fixed';
+          btn.style.bottom = '20px';
+          btn.style.right = '20px';
+          btn.style.background = 'rgba(25, 118, 210, 0.9)';
+          btn.style.color = 'white';
+          btn.style.padding = '10px 15px';
+          btn.style.borderRadius = '20px';
+          btn.style.zIndex = '9999';
+          btn.style.fontSize = '14px';
+          btn.style.cursor = 'pointer';
+          btn.textContent = 'Toca para música ▶️';
+          btn.onclick = () => {
+            audio.play();
+            btn.remove();
+            document.getElementById('music-overlay')?.remove();
+          };
+          document.body.appendChild(btn);
+        }
+      });
     }
-    function eliminarBotonFallback() {
-        const btn = document.getElementById('boton-musica-fallback');
-        if (btn) btn.remove();
-    }
-    // Clicks en pantalla global, no solo tarjeta
-    window.addEventListener('click', reproducirMusica);
-    window.addEventListener('touchstart', reproducirMusica);
+  }
 
-    // Fallback automático tras carga (por si todo falla, se intentará mostrar el botón)
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            if (!audio.paused) return;
-            mostrarBotonFallback();
-        }, 3500);
-    });
-  </script>
-</body>
-</html>
+  // Intenta iniciar la música al cargar (con retraso para mejor compatibilidad)
+  window.addEventListener('load', () => {
+    setTimeout(iniciarMusica, 500);
+  });
+
+  // También al hacer clic/touch en cualquier lugar (para móviles)
+  document.addEventListener('click', iniciarMusica, { once: true });
+  document.addEventListener('touchstart', iniciarMusica, { once: true });
+</script>
