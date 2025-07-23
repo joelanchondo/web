@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación XV Años</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Santiago XV</title>
   <style>
     body {
       margin: 0;
@@ -11,115 +11,190 @@
       background-color: #000;
       color: white;
       font-family: 'Georgia', serif;
-      background-image: url('https://i.imgur.com/VxEq2yl.png'); /* Esquineros PNG transparente */
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+      text-align: center;
+      overflow-x: hidden;
     }
 
     .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 2rem;
-      text-align: center;
-      position: relative;
+      padding: 30px 20px;
     }
 
     .corona {
-      width: 80px;
-      margin: 0 auto 10px;
+      width: 100px;
+      margin: 0 auto 20px;
     }
 
     h1 {
-      font-size: 2.8rem;
-      margin: 0;
-      font-weight: bold;
-      text-transform: uppercase;
+      font-size: 2.5em;
+      margin-bottom: 10px;
     }
 
-    .section {
-      margin-top: 2rem;
+    p {
+      font-size: 1.2em;
+      margin: 10px auto;
+      max-width: 600px;
     }
 
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
+    .esquineros::before,
+    .esquineros::after,
+    .esquineros span::before,
+    .esquineros span::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 3px solid white;
     }
 
-    .section p {
-      font-size: 1.2rem;
-      margin: 0.3rem 0;
+    .esquineros {
+      position: relative;
+      padding: 20px;
+      border-radius: 20px;
+      margin: 30px auto;
+      max-width: 800px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
     }
 
-    .mapa {
-      margin: 1rem auto;
+    .esquineros::before {
+      top: 0;
+      left: 0;
+      border-right: none;
+      border-bottom: none;
     }
 
-    .mapa img {
-      max-width: 100%;
+    .esquineros::after {
+      top: 0;
+      right: 0;
+      border-left: none;
+      border-bottom: none;
+    }
+
+    .esquineros span::before {
+      bottom: 0;
+      left: 0;
+      border-right: none;
+      border-top: none;
+    }
+
+    .esquineros span::after {
+      bottom: 0;
+      right: 0;
+      border-left: none;
+      border-top: none;
+    }
+
+    .direccion-img {
+      width: 100%;
+      max-width: 600px;
       border: 2px solid white;
       border-radius: 10px;
+      margin: 20px auto;
+      display: block;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: underline;
     }
 
     audio {
-      margin-top: 1rem;
-      width: 100%;
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 2rem;
-      }
-      .section h2 {
-        font-size: 1.5rem;
-      }
-      .section p {
-        font-size: 1rem;
-      }
+      display: none;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="https://i.imgur.com/pvYO3HM.png" alt="Corona" class="corona">
-
-    <h1>Mis XV Años</h1>
-
-    <div class="section">
-      <h2>Joel Anchondo</h2>
-      <p>Con la bendición de Dios y el amor de mis padres</p>
-      <p>Te invito a celebrar este día tan especial</p>
+    <img class="corona" src="https://cdn-icons-png.flaticon.com/512/616/616554.png" alt="Corona" />
+    <div class="esquineros">
+      <h1>Santiago 15</h1>
+      <p>Te invito a celebrar mi fiesta de 15 años que se llevará acabó el día <strong>16 de agosto del 2025</strong>.</p>
+      <p><strong>Horario:</strong> 8:00 PM a 1:00 AM</p>
+      <p><strong>Regalo:</strong> Efectivo</p>
+      <p>¡Puedes traer tu traje de baño!</p>
+      <span></span>
     </div>
 
-    <div class="section">
-      <h2>Fecha y Hora</h2>
-      <p>Sábado 24 de agosto 2025</p>
-      <p>Recepción: 6:00 PM</p>
-    </div>
-
-    <div class="section">
-      <h2>Dirección</h2>
-      <p>Granja Los Sernas</p>
-      <p>Meoqui 32-18, Revolución, 31135</p>
-      <p>Chihuahua, Chih.</p>
-    </div>
-
-    <div class="mapa">
-      <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z" target="_blank">
-        <img src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-0.91&panoid=R_rvwVfsnP3NOyCYNMPGBw&yaw=266.82" alt="Ubicación">
+    <img class="direccion-img" src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&amp;w=900&amp;h=600&amp;pitch=-0.9176805657866396&amp;panoid=R_rvwVfsnP3NOyCYNMPGBw&amp;yaw=266.82372436316797" alt="Ubicación" />
+    <p>
+      Dirección: <strong>Meoqui 32-18, Revolución, 31135 Chihuahua, Chih.</strong><br />
+      <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z/data=!4m11!1m4!7m3!1m1!1s112236239953861599005!2e2!3m5!1s0x86ea436ab3323d9f:0xa127d9da73902dff!8m2!3d28.7083791!4d-106.099051!16s%2Fg%2F11qjmd4dzw?entry=ttu" target="_blank">
+        Ver en Google Maps
       </a>
-    </div>
+    </p>
 
-    <div class="section">
-      <h2>¡Te espero!</h2>
-      <p>Será un momento inolvidable</p>
-    </div>
-
-    <audio autoplay loop controls>
-      <source src="https://raw.githubusercontent.com/joelanchondo/mimusica/main/quince.mp3" type="audio/mpeg">
-      Tu navegador no soporta audio HTML5.
+    <audio autoplay loop>
+      <source src="yo-te-esperaba.mp3" type="audio/mpeg">
+      Tu navegador no soporta el elemento de audio.
     </audio>
   </div>
+
+  <!-- Confetti -->
+  <script>
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.top = 0;
+    canvas.style.left = 0;
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = 9999;
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    let W = (canvas.width = window.innerWidth);
+    let H = (canvas.height = window.innerHeight);
+
+    window.addEventListener('resize', () => {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    });
+
+    const confetti = [];
+    const colors = ['#ffffff', '#ff69b4', '#ffd700'];
+
+    for (let i = 0; i < 150; i++) {
+      confetti.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 6 + 4,
+        d: Math.random() * 50,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        tilt: Math.floor(Math.random() * 10) - 10,
+        tiltAngleIncremental: Math.random() * 0.1 + 0.05,
+        tiltAngle: 0
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < confetti.length; i++) {
+        const c = confetti[i];
+        ctx.beginPath();
+        ctx.lineWidth = c.r / 2;
+        ctx.strokeStyle = c.color;
+        ctx.moveTo(c.x + c.tilt + c.r / 2, c.y);
+        ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 2);
+        ctx.stroke();
+      }
+      update();
+    }
+
+    function update() {
+      for (let i = 0; i < confetti.length; i++) {
+        const c = confetti[i];
+        c.tiltAngle += c.tiltAngleIncremental;
+        c.y += (Math.cos(c.d) + 3 + c.r / 2) / 2;
+        c.x += Math.sin(c.d);
+        c.tilt = Math.sin(c.tiltAngle) * 15;
+
+        if (c.y > H) {
+          c.y = -10;
+          c.x = Math.random() * W;
+        }
+      }
+    }
+
+    (function loop() {
+      requestAnimationFrame(loop);
+      draw();
+    })();
+  </script>
 </body>
 </html>
