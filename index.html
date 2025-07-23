@@ -60,7 +60,7 @@
       z-index: 2;
     }
     .corona {
-      width: 240px;
+      width: 288px; /* 240px + 20% */
       max-width: 98vw;
       margin-bottom: 2px;
       margin-top: 4px;
@@ -68,23 +68,26 @@
       margin-left: auto;
       margin-right: auto;
       filter: drop-shadow(0 0 22px var(--color-dorado));
+      transition: width 0.2s;
     }
     .nombre-img {
-      width: 220px;
-      max-width: 85vw;
+      width: 286px; /* 220px + 30% */
+      max-width: 95vw;
       display: block;
       margin: 0 auto 6px auto;
       filter: drop-shadow(0 0 8px #ffd700bb) brightness(1.1);
+      transition: width 0.2s;
     }
     .numero-img {
-      width: 180px;
-      max-width: 80vw;
+      width: 234px; /* 180px + 30% */
+      max-width: 88vw;
       margin-bottom: 6px;
       margin-top: 6px;
       display: block;
       margin-left: auto;
       margin-right: auto;
       filter: drop-shadow(0 0 8px #ffd700bb) brightness(1.1);
+      transition: width 0.2s;
     }
     .details {
       width: 100%;
@@ -193,15 +196,15 @@
     @media (max-width: 700px) {
       .container { padding: 18px 2vw; }
       .info-card { padding: 24px 2vw; }
-      .corona { width: 140px; }
-      .nombre-img { width: 120px;}
-      .numero-img { width: 110px;}
+      .corona { width: 168px; }
+      .nombre-img { width: 145px;}
+      .numero-img { width: 130px;}
     }
     @media (max-width: 480px) {
       .info-card { padding: 13px 1vw; }
-      .corona { width: 95px; }
-      .nombre-img { width: 68px;}
-      .numero-img { width: 78px;}
+      .corona { width: 114px; }
+      .nombre-img { width: 88px;}
+      .numero-img { width: 94px;}
       .details p { font-size: 0.94rem; }
       .info-card .btn-confirmar,
       .info-card .map-section a,
@@ -216,7 +219,8 @@
       <img class="nombre-img" src="santiago.png" alt="Santiago" />
       <img class="numero-img" src="numero.png" alt="15 años" />
       <div class="details">
-        <p>Te invito a celebrar un momento muy importante en mi vida, <strong>mi fiesta de 15 años</strong>.</p>
+        <p>Te invito a celebrar un momento muy importante en mi vida.</p>
+        <p><strong>Mi fiesta de 15 años</strong>.</p>
         <p><strong>Fecha:</strong> 16 de agosto del 2025</p>
         <p><strong>Horario:</strong> 8:00 pm a 1:00 am</p>
         <p><strong>Regalo:</strong> efectivo</p>
