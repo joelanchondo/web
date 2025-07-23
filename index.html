@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Santiago XV</title>
-  <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Material+Icons+Outlined&display=swap" rel="stylesheet">
+  <title>SANTIAGO XV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet">
   <style>
     :root {
       --color-primario: #ffffff;
@@ -97,6 +97,7 @@
       margin: 0 0 10px 0;
       color: var(--color-destacado);
       text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+      text-transform: uppercase;
     }
 
     .info-card h2 {
@@ -105,12 +106,10 @@
       color: var(--color-primario);
       font-weight: normal;
       letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     .info-card .details {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
       width: 100%;
       margin-bottom: 20px;
     }
@@ -119,15 +118,8 @@
       font-size: 1.2rem;
       margin: 8px 0;
       line-height: 1.6;
-      text-align: left;
-      display: flex;
-      align-items: center;
-    }
-
-    .info-card .details p i {
-      margin-right: 10px;
-      color: var(--color-secundario);
-      font-size: 1.5rem;
+      text-align: center;
+      text-transform: uppercase;
     }
 
     .info-card .map-section {
@@ -149,6 +141,7 @@
       font-size: 1.2rem;
       margin: 10px 0;
       text-align: center;
+      text-transform: uppercase;
     }
 
     .info-card .map-section a {
@@ -162,6 +155,7 @@
       border-radius: 20px;
       background: rgba(255, 105, 180, 0.2);
       border: 1px solid var(--color-secundario);
+      text-transform: uppercase;
     }
 
     .info-card .map-section a:hover {
@@ -220,18 +214,18 @@
   <div class="container">
     <div class="info-card">
       <h1>15</h1>
-      <h2>Santiago</h2>
+      <h2>SANTIAGO</h2>
       <div class="details">
-        <p><i class="material-icons-outlined">celebration</i> Te invito a celebrar mi fiesta de 15 años</p>
-        <p><i class="material-icons-outlined">calendar_today</i> Fecha: 16 de agosto del 2025</p>
-        <p><i class="material-icons-outlined">access_time</i> Horario: 8:00 PM a 1:00 AM</p>
-        <p><i class="material-icons-outlined">card_giftcard</i> Regalo: Efectivo</p>
-        <p><i class="material-icons-outlined">beach_access</i> ¡Puedes traer tu traje de baño!</p>
+        <p>TE INVITO A CELEBRAR MI FIESTA DE 15 AÑOS</p>
+        <p>FECHA: 16 DE AGOSTO DEL 2025</p>
+        <p>HORARIO: 8:00 PM A 1:00 AM</p>
+        <p>REGALO: EFECTIVO</p>
+        <p>¡PUEDES TRAER TU TRAJE DE BAÑO!</p>
       </div>
       <div class="map-section">
-        <img class="direccion-img" src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-0.9176805657866396&panoid=R_rvwVfsnP3NOyCYNMPGBw&yaw=266.82372436316797" alt="Ubicación" />
-        <p><strong>Dirección:</strong> Calle Meoqui #21 Col. Revolución</p>
-        <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z/data=!4m11!1m4!7m3!1m1!1s112236239953861599005!2e2!3m5!1s0x86ea436ab3323d9f:0xa127d9da73902dff!8m2!3d28.7083791!4d-106.099051!16s%2Fg%2F11qjmd4dzw?entry=ttu" target="_blank">Ver en Google Maps</a>
+        <img class="direccion-img" src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-0.9176805657866396&panoid=R_rvwVfsnP3NOyCYNMPGBw&yaw=266.82372436316797" alt="UBICACIÓN" />
+        <p>DIRECCIÓN: CALLE MEOQUI #21 COL. REVOLUCIÓN</p>
+        <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z/data=!4m11!1m4!7m3!1m1!1s112236239953861599005!2e2!3m5!1s0x86ea436ab3323d9f:0xa127d9da73902dff!8m2!3d28.7083791!4d-106.099051!16s%2Fg%2F11qjmd4dzw?entry=ttu" target="_blank">VER EN GOOGLE MAPS</a>
       </div>
       <div class="corner-bottom"></div>
     </div>
@@ -331,7 +325,7 @@
     
     function mostrarBotonAudio() {
       const btn = document.createElement('button');
-      btn.textContent = '🎵 Activar Música';
+      btn.textContent = '🎵 ACTIVAR MÚSICA';
       btn.style.position = 'fixed';
       btn.style.bottom = '20px';
       btn.style.right = '20px';
