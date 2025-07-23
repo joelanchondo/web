@@ -1,275 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIS 15 AÑOS - Invitación Digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-primario: #e63946;
-            --color-secundario: #f1faee;
-            --color-destacado: #a8dadc;
-        }
-        
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #1d3557;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: radial-gradient(circle at 10% 20%, rgba(29, 53, 87, 0.8) 0%, rgba(69, 123, 157, 0.6) 90%);
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación 15 Años - Santiago</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('plantilla.jpg') no-repeat center center/cover;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
 
-        .invitacion-container {
-            width: 90%;
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            border: 2px solid var(--color-destacado);
-            position: relative;
-            padding-bottom: 40px;
-        }
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
 
-        .header {
-            background: linear-gradient(135deg, var(--color-primario), #c1121f);
-            padding: 30px 20px;
-            text-align: center;
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
+    .container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      animation: fadeIn 2s ease-in;
+    }
 
-        .titulo-principal {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            margin: 0;
-            color: var(--color-secundario);
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-            letter-spacing: 2px;
-        }
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+    }
 
-        .subtitulo {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            color: var(--color-secundario);
-            opacity: 0.9;
-        }
+    p {
+      font-size: 1.2em;
+      margin: 6px 0;
+      max-width: 90%;
+    }
 
-        .contenido {
-            padding: 30px;
-            text-align: center;
-        }
+    .map-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ff4081;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
 
-        .nombre {
-            font-size: 2.5rem;
-            margin: 20px 0;
-            color: var(--color-destacado);
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
+    .map-btn:hover {
+      background-color: #e91e63;
+    }
 
-        .instrucciones {
-            background: rgba(168, 218, 220, 0.2);
-            border-left: 4px solid var(--color-destacado);
-            padding: 15px;
-            margin: 25px 0;
-            border-radius: 0 10px 10px 0;
-            text-align: left;
-            font-size: 1rem;
-        }
+    .note {
+      margin-top: 10px;
+      font-style: italic;
+      font-size: 1em;
+      opacity: 0.8;
+    }
 
-        .datos-invitacion {
-            margin: 30px 0;
-        }
+    audio {
+      display: none;
+    }
 
-        .dato {
-            margin: 15px 0;
-            font-size: 1.1rem;
-        }
-
-        .dato strong {
-            color: var(--color-destacado);
-        }
-
-        .qr-code {
-            width: 150px;
-            height: 150px;
-            margin: 20px auto;
-            background: white;
-            padding: 10px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: black;
-            font-weight: bold;
-        }
-
-        .footer {
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .flores-decorativas {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            opacity: 0.1;
-            z-index: -1;
-        }
-
-        .flor-1 {
-            top: 20px;
-            left: 20px;
-            transform: rotate(15deg);
-        }
-
-        .flor-2 {
-            bottom: 30px;
-            right: 30px;
-            transform: rotate(-10deg);
-        }
-
-        @media (max-width: 768px) {
-            .titulo-principal {
-                font-size: 2.5rem;
-            }
-            
-            .nombre {
-                font-size: 2rem;
-            }
-            
-            .contenido {
-                padding: 20px;
-            }
-        }
-
-        /* Efecto de confeti */
-        .confeti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: var(--color-primario);
-            opacity: 0.7;
-            animation: caer 5s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes caer {
-            0% {
-                transform: translateY(-100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    </style>
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <div class="invitacion-container">
-        <!-- Decoración flores -->
-        <div class="flores-decorativas flor-1">🌸</div>
-        <div class="flores-decorativas flor-2">🌺</div>
-        
-        <!-- Confeti dinámico -->
-        <div id="confeti-container"></div>
-        
-        <div class="header">
-            <h1 class="titulo-principal">MIS 15 AÑOS</h1>
-            <p class="subtitulo">Invitación Digital</p>
-        </div>
-        
-        <div class="contenido">
-            <div class="nombre" contenteditable="true">SANTIAGO</div>
-            
-            <div class="instrucciones">
-                Ingresa todos los datos de tu fiesta en los campos editables
-            </div>
-            
-            <div class="datos-invitacion">
-                <div class="dato"><strong>Fecha:</strong> <span contenteditable="true">16 de Agosto 2025</span></div>
-                <div class="dato"><strong>Hora:</strong> <span contenteditable="true">8:00 PM</span></div>
-                <div class="dato"><strong>Lugar:</strong> <span contenteditable="true">Salón de Eventos Las Palmas</span></div>
-                <div class="dato"><strong>Código de vestimenta:</strong> <span contenteditable="true">Elegante</span></div>
-            </div>
-            
-            <div class="qr-code">
-                Código QR<br>Personalizado
-            </div>
-            
-            <div class="footer">
-                <p>Confirmación: contacto@ejemplo.com</p>
-                <p>Tel: 555-123-4567</p>
-            </div>
-        </div>
-    </div>
 
-    <script>
-        // Generador de confeti
-        function crearConfeti() {
-            const colores = ['#e63946', '#a8dadc', '#f1faee', '#457b9d'];
-            const container = document.getElementById('confeti-container');
-            
-            for (let i = 0; i < 50; i++) {
-                const confeti = document.createElement('div');
-                confeti.classList.add('confeti');
-                
-                // Posición aleatoria
-                confeti.style.left = Math.random() * 100 + 'vw';
-                
-                // Color aleatorio
-                confeti.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
-                
-                // Tamaño aleatorio
-                const size = Math.random() * 10 + 5;
-                confeti.style.width = size + 'px';
-                confeti.style.height = size + 'px';
-                
-                // Animación con retraso aleatorio
-                confeti.style.animationDelay = Math.random() * 5 + 's';
-                confeti.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                
-                // Forma aleatoria (círculo o cuadrado)
-                if (Math.random() > 0.5) {
-                    confeti.style.borderRadius = '50%';
-                }
-                
-                container.appendChild(confeti);
-            }
-        }
-        
-        // Iniciar confeti al cargar
-        window.addEventListener('load', crearConfeti);
-        
-        // Hacer que los elementos editables guarden los cambios
-        document.querySelectorAll('[contenteditable="true"]').forEach(element => {
-            element.addEventListener('blur', function() {
-                localStorage.setItem(this.textContent.trim(), this.textContent);
-            });
-            
-            // Cargar datos guardados si existen
-            if (localStorage.getItem(element.textContent.trim())) {
-                element.textContent = localStorage.getItem(element.textContent.trim());
-            }
-        });
-    </script>
+  <div class="overlay"></div>
+  <div class="container">
+    <h1>Santiago 15</h1>
+    <p>Te invito a celebrar mi fiesta de 15 años</p>
+    <p>📅 <strong>16 de agosto del 2025</strong></p>
+    <p>📍 <strong>Calle Meoqui #21, Col. Revolución</strong></p>
+    <p>🕗 De 8:00 PM a 1:00 AM</p>
+    <p>🎁 Regalo sugerido: efectivo</p>
+
+    <button class="map-btn" onclick="openMaps()">Ir a la dirección</button>
+    <p class="note">Y así como un pedacito aparte, puedes traer tu traje de baño 🩱🩳</p>
+  </div>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="yo-te-esperaba.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <script>
+    // Inicia música al tocar pantalla en móviles
+    document.body.addEventListener('click', () => {
+      const audio = document.getElementById('bg-music');
+      if (audio.paused) {
+        audio.play().catch(() => {});
+      }
+    });
+
+    function openMaps() {
+      const url = "https://www.google.com/maps?q=Calle+Meoqui+21,+Col.+Revolución";
+      window.open(url, '_blank');
+    }
+  </script>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    confetti({
+      particleCount: 100,
+      spread: 100,
+      origin: { y: 0.6 }
+    });
+  </script>
+
 </body>
 </html>
