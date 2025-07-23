@@ -70,44 +70,50 @@
       margin-right: auto;
       filter: drop-shadow(0 0 10px var(--color-dorado));
     }
-    /* Número 15 grande y elegante */
-    .info-card .numero-15 {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 6.5rem;
-      font-weight: 700;
-      color: var(--color-dorado);
-      text-shadow: 0 0 32px #c6a94b99, 0 0 12px #000b;
-      margin: 0 0 6px 0;
-      line-height: 1;
-      letter-spacing: 3px;
-      z-index: 2;
+    /* Número PNG (en vez de texto) */
+    .numero-img {
+      width: 180px;
+      max-width: 80vw;
+      margin-bottom: 6px;
+      margin-top: 6px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      filter: drop-shadow(0 0 8px #ffd700bb) brightness(1.1);
     }
-    /* Nombre grande y script */
-    .info-card .nombre-santiago {
+    /* Nombre SANTIAGO grande y dorado */
+    .nombre-santiago {
       font-family: 'Great Vibes', cursive;
       color: var(--color-dorado);
-      font-size: 3.1rem;
+      font-size: 3.7rem;
       font-weight: 700;
       margin-top: 0px;
-      margin-bottom: 18px;
-      text-shadow: 0 2.5px 10px #c6a94bb0, 0 1px 0 #0009;
-      letter-spacing: 2px;
+      margin-bottom: 15px;
+      text-shadow: 0 2.5px 12px #c6a94bb0, 0 1px 0 #0009;
+      letter-spacing: 4px;
       text-align: center;
       z-index: 2;
+      text-transform: uppercase;
     }
-    .info-card .details {
+    .details {
       width: 100%;
       margin-bottom: 20px;
       margin-top: 5px;
     }
-    .info-card .details p {
+    .details p {
       font-size: 1.18rem;
       margin: 8px 0;
       line-height: 1.6;
       text-align: center;
-      text-transform: uppercase;
+      text-transform: none;
       font-family: 'Cinzel Decorative', serif;
       color: #fffbe6;
+      letter-spacing: 1.2px;
+    }
+    .details p strong {
+      color: var(--color-dorado);
+      font-weight: 700;
+      text-transform: uppercase;
       letter-spacing: 1.6px;
     }
     .info-card .map-section {
@@ -127,9 +133,9 @@
       font-size: 1.1rem;
       margin: 6px 0;
       text-align: center;
-      text-transform: uppercase;
       font-family: 'Cinzel Decorative', serif;
       color: #fffbe6;
+      text-transform: none;
     }
     .info-card .map-section a {
       color: var(--color-dorado);
@@ -155,45 +161,45 @@
       .container { padding: 18px 2vw; }
       .info-card { padding: 24px 2vw; }
       .corona { width: 78px; }
-      .info-card .numero-15 { font-size: 3.7rem; }
-      .info-card .nombre-santiago { font-size: 2.1rem; }
+      .numero-img { width: 110px;}
+      .nombre-santiago { font-size: 2.4rem; }
     }
     @media (max-width: 480px) {
       .info-card { padding: 13px 1vw; }
       .corona { width: 58px; }
-      .info-card .numero-15 { font-size: 2.3rem; }
-      .info-card .nombre-santiago { font-size: 1.2rem; }
-      .info-card .details p { font-size: 0.94rem; }
+      .numero-img { width: 78px;}
+      .nombre-santiago { font-size: 1.3rem; }
+      .details p { font-size: 0.94rem; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Usa tu PNG de corona ya subido -->
     <img class="corona" src="corona.png" alt="Corona" />
     <div class="info-card">
-      <div class="numero-15">15</div>
-      <div class="nombre-santiago">Santiago</div>
+      <img class="numero-img" src="numero.png" alt="15 años" />
+      <div class="nombre-santiago">SANTIAGO</div>
       <div class="details">
-        <p>Te invito a celebrar mi fiesta de 15 años</p>
-        <p>Fecha: 16 de Agosto del 2025</p>
-        <p>Horario: 8:00 pm a 1:00 am</p>
-        <p>Regalo: Efectivo</p>
-        <p>¡Puedes traer tu traje de baño!</p>
+        <p>Te invito a celebrar un momento muy importante en mi vida, <strong>mi fiesta de 15 años</strong>.</p>
+        <p><strong>Fecha:</strong> 16 de agosto del 2025</p>
+        <p><strong>Horario:</strong> 8:00 pm a 1:00 am</p>
+        <p><strong>Regalo:</strong> efectivo</p>
+        <p><strong>¡Puedes traer tu traje de baño!</strong></p>
       </div>
       <div class="map-section">
         <img class="direccion-img" src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-0.9176805657866396&panoid=R_rvwVfsnP3NOyCYNMPGBw&yaw=266.82372436316797" alt="Ubicación" />
-        <p>Dirección: Calle Meoqui #21 Col. Revolución</p>
+        <p><strong>Dirección:</strong> Calle Meoqui #21 Col. Revolución</p>
         <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z/data=!4m11!1m4!7m3!1m1!1s112236239953861599005!2e2!3m5!1s0x86ea436ab3323d9f:0xa127d9da73902dff!8m2!3d28.7083791!4d-106.099051!16s%2Fg%2F11qjmd4dzw?entry=ttu" target="_blank">Ver en Google Maps</a>
       </div>
     </div>
-    <audio autoplay loop>
+    <audio id="audio-bgm" autoplay loop>
       <source src="yo-te-esperaba.mp3" type="audio/mpeg">
       Tu navegador no soporta el elemento de audio.
     </audio>
   </div>
   <!-- Confetti dorado lento -->
   <script>
+    // Confetti dorado lento
     const canvas = document.createElement('canvas');
     canvas.style.position = 'fixed';
     canvas.style.top = '0';
@@ -256,15 +262,19 @@
       requestAnimationFrame(drawParticles);
     }
     drawParticles();
-    // Sistema de audio mejorado
-    const audio = document.querySelector('audio');
-    function iniciarAudio() {
-      audio.play().catch(e => {
-        mostrarBotonAudio();
-      });
+
+    // Música: se activa con scroll o click, sólo una vez/trabaja bien en móviles y desktop
+    const audio = document.getElementById('audio-bgm');
+    let musicaIntentada = false;
+    function activarMusica() {
+      if (musicaIntentada) return;
+      musicaIntentada = true;
+      audio.play().catch(() => mostrarBotonAudio());
     }
     function mostrarBotonAudio() {
+      if (document.getElementById('btn-audio-activar')) return;
       const btn = document.createElement('button');
+      btn.id = 'btn-audio-activar';
       btn.textContent = '🎵 ACTIVAR MÚSICA';
       btn.style.position = 'fixed';
       btn.style.bottom = '20px';
@@ -284,11 +294,12 @@
       };
       document.body.appendChild(btn);
     }
+    document.addEventListener('click', activarMusica, { once: true });
+    document.addEventListener('touchstart', activarMusica, { once: true });
+    document.addEventListener('scroll', activarMusica, { once: true });
     window.addEventListener('load', () => {
-      setTimeout(iniciarAudio, 1200);
+      setTimeout(activarMusica, 1200);
     });
-    document.addEventListener('click', iniciarAudio, { once: true });
-    document.addEventListener('touchstart', iniciarAudio, { once: true });
   </script>
 </body>
 </html>
