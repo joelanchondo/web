@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SANTIAGO XV</title>
-  <!-- Fuentes: Cinzel Decorative, Great Vibes -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
       --color-dorado: #ffd700;
@@ -59,18 +58,26 @@
       box-sizing: border-box;
       z-index: 2;
     }
-    /* Corona PNG centrada */
+    /* Corona PNG centrada, el doble de grande que antes */
     .corona {
-      width: 120px;
-      max-width: 90vw;
-      margin-bottom: 10px;
+      width: 240px;
+      max-width: 98vw;
+      margin-bottom: 2px;
       margin-top: 4px;
       display: block;
       margin-left: auto;
       margin-right: auto;
-      filter: drop-shadow(0 0 10px var(--color-dorado));
+      filter: drop-shadow(0 0 22px var(--color-dorado));
     }
-    /* Número PNG (en vez de texto) */
+    /* Nombre SANTIAGO PNG */
+    .nombre-img {
+      width: 220px;
+      max-width: 85vw;
+      display: block;
+      margin: 0 auto 6px auto;
+      filter: drop-shadow(0 0 8px #ffd700bb) brightness(1.1);
+    }
+    /* Número PNG */
     .numero-img {
       width: 180px;
       max-width: 80vw;
@@ -80,20 +87,6 @@
       margin-left: auto;
       margin-right: auto;
       filter: drop-shadow(0 0 8px #ffd700bb) brightness(1.1);
-    }
-    /* Nombre SANTIAGO grande y dorado */
-    .nombre-santiago {
-      font-family: 'Great Vibes', cursive;
-      color: var(--color-dorado);
-      font-size: 3.7rem;
-      font-weight: 700;
-      margin-top: 0px;
-      margin-bottom: 15px;
-      text-shadow: 0 2.5px 12px #c6a94bb0, 0 1px 0 #0009;
-      letter-spacing: 4px;
-      text-align: center;
-      z-index: 2;
-      text-transform: uppercase;
     }
     .details {
       width: 100%;
@@ -160,15 +153,15 @@
     @media (max-width: 700px) {
       .container { padding: 18px 2vw; }
       .info-card { padding: 24px 2vw; }
-      .corona { width: 78px; }
+      .corona { width: 140px; }
+      .nombre-img { width: 120px;}
       .numero-img { width: 110px;}
-      .nombre-santiago { font-size: 2.4rem; }
     }
     @media (max-width: 480px) {
       .info-card { padding: 13px 1vw; }
-      .corona { width: 58px; }
+      .corona { width: 95px; }
+      .nombre-img { width: 68px;}
       .numero-img { width: 78px;}
-      .nombre-santiago { font-size: 1.3rem; }
       .details p { font-size: 0.94rem; }
     }
   </style>
@@ -177,8 +170,8 @@
   <div class="container">
     <img class="corona" src="corona.png" alt="Corona" />
     <div class="info-card">
+      <img class="nombre-img" src="santiago.png" alt="Santiago" />
       <img class="numero-img" src="numero.png" alt="15 años" />
-      <div class="nombre-santiago">SANTIAGO</div>
       <div class="details">
         <p>Te invito a celebrar un momento muy importante en mi vida, <strong>mi fiesta de 15 años</strong>.</p>
         <p><strong>Fecha:</strong> 16 de agosto del 2025</p>
