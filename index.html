@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Santiago XV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Material+Icons+Outlined&display=swap" rel="stylesheet">
   <style>
     :root {
       --color-primario: #ffffff;
@@ -14,7 +15,8 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #000;
+      background: url('https://i.imgur.com/5gL7Y0l.jpeg') no-repeat center center fixed;
+      background-size: cover;
       color: var(--color-primario);
       font-family: 'Georgia', serif;
       display: flex;
@@ -42,48 +44,24 @@
       filter: drop-shadow(0 0 10px var(--color-destacado));
     }
 
-    h1 {
-      font-size: 3.5rem;
-      margin: 0 0 5px 0;
-      color: var(--color-destacado);
-      text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-    }
-
-    h2 {
-      font-size: 2.2rem;
-      margin: 0 0 30px 0;
-      color: var(--color-primario);
-      font-weight: normal;
-      letter-spacing: 2px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin: 12px 0;
-      line-height: 1.6;
-      max-width: 600px;
-      width: 100%;
-    }
-
-    .esquineros {
-      position: relative;
-      padding: 40px 30px;
-      border-radius: 20px;
-      margin: 30px 0;
-      width: 100%;
-      max-width: 600px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
+    .info-card {
       background: rgba(20, 20, 20, 0.7);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 30px;
+      width: 100%;
+      max-width: 600px;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-sizing: border-box;
+      text-align: center;
     }
 
-    .esquineros::before,
-    .esquineros::after,
-    .esquineros span::before,
-    .esquineros span::after {
+    .info-card::before,
+    .info-card::after,
+    .info-card .corner-bottom::before,
+    .info-card .corner-bottom::after {
       content: "";
       position: absolute;
       width: 25px;
@@ -91,54 +69,95 @@
       border: 3px solid var(--color-primario);
     }
 
-    .esquineros::before {
-      top: 0;
-      left: 0;
+    .info-card::before {
+      top: -13px;
+      left: -13px;
       border-right: none;
       border-bottom: none;
       border-radius: 8px 0 0 0;
     }
 
-    .esquineros::after {
-      top: 0;
-      right: 0;
+    .info-card::after {
+      top: -13px;
+      right: -13px;
       border-left: none;
       border-bottom: none;
       border-radius: 0 8px 0 0;
     }
 
-    .esquineros span::before {
-      bottom: 0;
-      left: 0;
+    .info-card .corner-bottom::before {
+      bottom: -13px;
+      left: -13px;
       border-right: none;
       border-top: none;
       border-radius: 0 0 0 8px;
     }
 
-    .esquineros span::after {
-      bottom: 0;
-      right: 0;
+    .info-card .corner-bottom::after {
+      bottom: -13px;
+      right: -13px;
       border-left: none;
       border-top: none;
       border-radius: 0 0 8px 0;
     }
 
-    .direccion-img {
+    .info-card h1 {
+      font-size: 3.5rem;
+      margin: 0 0 10px 0;
+      color: var(--color-destacado);
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    }
+
+    .info-card h2 {
+      font-size: 2.2rem;
+      margin: 0 0 20px 0;
+      color: var(--color-primario);
+      font-weight: normal;
+      letter-spacing: 2px;
+    }
+
+    .info-card .details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .info-card .details p {
+      font-size: 1.2rem;
+      margin: 8px 0;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .info-card .details p i {
+      margin-right: 10px;
+      color: var(--color-secundario);
+    }
+
+    .info-card .map-section {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .info-card .map-section img {
       width: 100%;
       max-width: 600px;
       height: auto;
       border: 2px solid var(--color-primario);
       border-radius: 12px;
-      margin: 25px 0;
+      margin: 15px 0;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     }
 
-    strong {
-      color: var(--color-destacado);
-      font-weight: bold;
+    .info-card .map-section p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+      text-align: center;
     }
 
-    a {
+    .info-card .map-section a {
       color: var(--color-secundario);
       text-decoration: none;
       font-weight: bold;
@@ -151,9 +170,14 @@
       border: 1px solid var(--color-secundario);
     }
 
-    a:hover {
+    .info-card .map-section a:hover {
       background: rgba(255, 105, 180, 0.4);
       transform: scale(1.05);
+    }
+
+    .corner-bottom {
+      position: relative;
+      width: 100%;
     }
 
     audio {
@@ -162,21 +186,20 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      h1 {
+      .info-card h1 {
         font-size: 2.8rem;
       }
       
-      h2 {
+      .info-card h2 {
         font-size: 1.8rem;
-        margin-bottom: 20px;
       }
       
-      p {
+      .info-card .details p {
         font-size: 1.1rem;
       }
       
-      .esquineros {
-        padding: 30px 20px;
+      .info-card {
+        padding: 20px;
       }
       
       .corona {
@@ -186,20 +209,20 @@
     }
 
     @media (max-width: 480px) {
-      h1 {
+      .info-card h1 {
         font-size: 2.2rem;
       }
       
-      h2 {
+      .info-card h2 {
         font-size: 1.5rem;
       }
       
-      p {
+      .info-card .details p {
         font-size: 1rem;
       }
       
-      .esquineros {
-        padding: 25px 15px;
+      .info-card {
+        padding: 15px;
       }
     }
   </style>
@@ -207,25 +230,23 @@
 <body>
   <div class="container">
     <img class="corona" src="https://cdn-icons-png.flaticon.com/512/616/616554.png" alt="Corona" />
-    <div class="esquineros">
+    <div class="info-card">
       <h1>15</h1>
       <h2>Santiago</h2>
-      <p>Te invito a celebrar mi fiesta de 15 años</p>
-      <p><strong>Fecha:</strong> 16 de agosto del 2025</p>
-      <p><strong>Horario:</strong> 8:00 PM a 1:00 AM</p>
-      <p><strong>Regalo:</strong> Efectivo</p>
-      <p>¡Puedes traer tu traje de baño!</p>
-      <span></span>
+      <div class="details">
+        <p><i class="material-icons-outlined">celebration</i> Te invito a celebrar mi fiesta de 15 años</p>
+        <p><i class="material-icons-outlined">calendar_today</i> <strong>Fecha:</strong> 16 de agosto del 2025</p>
+        <p><i class="material-icons-outlined">access_time</i> <strong>Horario:</strong> 8:00 PM a 1:00 AM</p>
+        <p><i class="material-icons-outlined">card_giftcard</i> <strong>Regalo:</strong> Efectivo</p>
+        <p><i class="material-icons-outlined">beach_access</i> ¡Puedes traer tu traje de baño!</p>
+      </div>
+      <div class="map-section">
+        <img class="direccion-img" src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-0.9176805657866396&panoid=R_rvwVfsnP3NOyCYNMPGBw&yaw=266.82372436316797" alt="Ubicación" />
+        <p><strong>Dirección:</strong> Calle Meoqui #21 Col. Revolución</p>
+        <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z/data=!4m11!1m4!7m3!1m1!1s112236239953861599005!2e2!3m5!1s0x86ea436ab3323d9f:0xa127d9da73902dff!8m2!3d28.7083791!4d-106.099051!16s%2Fg%2F11qjmd4dzw?entry=ttu" target="_blank">Ver en Google Maps</a>
+      </div>
+      <div class="corner-bottom"></div>
     </div>
-
-    <img class="direccion-img" src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&amp;w=900&amp;h=600&amp;pitch=-0.9176805657866396&amp;panoid=R_rvwVfsnP3NOyCYNMPGBw&amp;yaw=266.82372436316797" alt="Ubicación" />
-    <p>
-      <strong>Dirección:</strong> Calle Meoqui #21 Col. Revolución<br />
-      <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z/data=!4m11!1m4!7m3!1m1!1s112236239953861599005!2e2!3m5!1s0x86ea436ab3323d9f:0xa127d9da73902dff!8m2!3d28.7083791!4d-106.099051!16s%2Fg%2F11qjmd4dzw?entry=ttu" target="_blank">
-        Ver en Google Maps
-      </a>
-    </p>
-
     <audio autoplay loop>
       <source src="yo-te-esperaba.mp3" type="audio/mpeg">
       Tu navegador no soporta el elemento de audio.
