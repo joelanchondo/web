@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Santiago XV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Material+Icons+Outlined&display=swap" rel="stylesheet">
   <style>
     :root {
       --color-primario: #ffffff;
@@ -23,7 +24,6 @@
       justify-content: center;
       min-height: 100vh;
       overflow-x: hidden;
-      touch-action: manipulation; /* Mejora la respuesta táctil */
     }
 
     .container {
@@ -35,22 +35,24 @@
       align-items: center;
     }
 
-    .marco-principal {
-      position: relative;
+    .info-card {
+      background: rgba(20, 20, 20, 0.7);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 30px;
       width: 100%;
       max-width: 600px;
-      padding: 40px;
-      border-radius: 20px;
-      margin: 0 auto;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      background: rgba(20, 20, 20, 0.7);
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
-    .esquineros::before,
-    .esquineros::after,
-    .esquineros span::before,
-    .esquineros span::after {
+    .info-card::before,
+    .info-card::after,
+    .info-card .corner-bottom::before,
+    .info-card .corner-bottom::after {
       content: "";
       position: absolute;
       width: 25px;
@@ -58,68 +60,98 @@
       border: 3px solid var(--color-primario);
     }
 
-    .esquineros::before {
-      top: 0;
-      left: 0;
+    .info-card::before {
+      top: -13px;
+      left: -13px;
       border-right: none;
       border-bottom: none;
       border-radius: 8px 0 0 0;
     }
 
-    .esquineros::after {
-      top: 0;
-      right: 0;
+    .info-card::after {
+      top: -13px;
+      right: -13px;
       border-left: none;
       border-bottom: none;
       border-radius: 0 8px 0 0;
     }
 
-    .esquineros span::before {
-      bottom: 0;
-      left: 0;
+    .info-card .corner-bottom::before {
+      bottom: -13px;
+      left: -13px;
       border-right: none;
       border-top: none;
       border-radius: 0 0 0 8px;
     }
 
-    .esquineros span::after {
-      bottom: 0;
-      right: 0;
+    .info-card .corner-bottom::after {
+      bottom: -13px;
+      right: -13px;
       border-left: none;
       border-top: none;
       border-radius: 0 0 8px 0;
     }
 
-    h1 {
+    .info-card h1 {
       font-size: 3.5rem;
-      margin: 0 0 5px 0;
+      margin: 0 0 10px 0;
       color: var(--color-destacado);
       text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-      text-align: center;
     }
 
-    h2 {
+    .info-card h2 {
       font-size: 2.2rem;
-      margin: 0 0 30px 0;
+      margin: 0 0 20px 0;
       color: var(--color-primario);
       font-weight: normal;
       letter-spacing: 2px;
-      text-align: center;
     }
 
-    p {
+    .info-card .details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .info-card .details p {
       font-size: 1.2rem;
-      margin: 12px 0;
+      margin: 8px 0;
       line-height: 1.6;
+      text-align: left;
+      display: flex;
+      align-items: center;
+    }
+
+    .info-card .details p i {
+      margin-right: 10px;
+      color: var(--color-secundario);
+      font-size: 1.5rem;
+    }
+
+    .info-card .map-section {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .info-card .map-section img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border: 2px solid var(--color-primario);
+      border-radius: 12px;
+      margin: 15px 0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .info-card .map-section p {
+      font-size: 1.2rem;
+      margin: 10px 0;
       text-align: center;
     }
 
-    strong {
-      color: var(--color-destacado);
-      font-weight: bold;
-    }
-
-    a {
+    .info-card .map-section a {
       color: var(--color-secundario);
       text-decoration: none;
       font-weight: bold;
@@ -132,9 +164,14 @@
       border: 1px solid var(--color-secundario);
     }
 
-    a:hover {
+    .info-card .map-section a:hover {
       background: rgba(255, 105, 180, 0.4);
       transform: scale(1.05);
+    }
+
+    .corner-bottom {
+      position: relative;
+      width: 100%;
     }
 
     audio {
@@ -143,65 +180,66 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .marco-principal {
-        padding: 30px 20px;
-      }
-      
-      h1 {
+      .info-card h1 {
         font-size: 2.8rem;
       }
       
-      h2 {
+      .info-card h2 {
         font-size: 1.8rem;
-        margin-bottom: 20px;
       }
       
-      p {
+      .info-card .details p {
         font-size: 1.1rem;
+      }
+      
+      .info-card {
+        padding: 20px;
       }
     }
 
     @media (max-width: 480px) {
-      .marco-principal {
-        padding: 25px 15px;
-      }
-      
-      h1 {
+      .info-card h1 {
         font-size: 2.2rem;
       }
       
-      h2 {
+      .info-card h2 {
         font-size: 1.5rem;
       }
       
-      p {
+      .info-card .details p {
         font-size: 1rem;
+      }
+      
+      .info-card {
+        padding: 15px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="marco-principal esquineros">
+    <div class="info-card">
       <h1>15</h1>
       <h2>Santiago</h2>
-      <p>Te invito a celebrar mi fiesta de 15 años</p>
-      <p><strong>Fecha:</strong> 16 de agosto del 2025</p>
-      <p><strong>Horario:</strong> 8:00 PM a 1:00 AM</p>
-      <p><strong>Regalo:</strong> Efectivo</p>
-      <p>¡Puedes traer tu traje de baño!</p>
-      
-      <p style="margin-top: 30px;">
-        <strong>Dirección:</strong> Calle Meoqui #21 Col. Revolución<br />
-        <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z/data=!4m11!1m4!7m3!1m1!1s112236239953861599005!2e2!3m5!1s0x86ea436ab3323d9f:0xa127d9da73902dff!8m2!3d28.7083791!4d-106.099051!16s%2Fg%2F11qjmd4dzw?entry=ttu" target="_blank">
-          Ver en Google Maps
-        </a>
-      </p>
-      <span></span>
+      <div class="details">
+        <p><i class="material-icons-outlined">celebration</i> Te invito a celebrar mi fiesta de 15 años</p>
+        <p><i class="material-icons-outlined">calendar_today</i> Fecha: 16 de agosto del 2025</p>
+        <p><i class="material-icons-outlined">access_time</i> Horario: 8:00 PM a 1:00 AM</p>
+        <p><i class="material-icons-outlined">card_giftcard</i> Regalo: Efectivo</p>
+        <p><i class="material-icons-outlined">beach_access</i> ¡Puedes traer tu traje de baño!</p>
+      </div>
+      <div class="map-section">
+        <img class="direccion-img" src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-0.9176805657866396&panoid=R_rvwVfsnP3NOyCYNMPGBw&yaw=266.82372436316797" alt="Ubicación" />
+        <p><strong>Dirección:</strong> Calle Meoqui #21 Col. Revolución</p>
+        <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z/data=!4m11!1m4!7m3!1m1!1s112236239953861599005!2e2!3m5!1s0x86ea436ab3323d9f:0xa127d9da73902dff!8m2!3d28.7083791!4d-106.099051!16s%2Fg%2F11qjmd4dzw?entry=ttu" target="_blank">Ver en Google Maps</a>
+      </div>
+      <div class="corner-bottom"></div>
     </div>
+    <audio autoplay loop>
+      <source src="yo-te-esperaba.mp3" type="audio/mpeg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
   </div>
-
-  <audio id="audio" src="yo-te-esperaba.mp3"></audio>
 
   <!-- Confetti Mejorado -->
   <script>
@@ -281,29 +319,19 @@
     
     drawParticles();
     
-    // Sistema de audio mejorado para móviles
-    const audio = document.getElementById('audio');
-    let audioIntentado = false;
+    // Sistema de audio mejorado
+    const audio = document.querySelector('audio');
     
     function iniciarAudio() {
-      if (audioIntentado) return;
-      audioIntentado = true;
-      
-      const promesa = audio.play();
-      
-      if (promesa !== undefined) {
-        promesa.catch(error => {
-          mostrarBotonAudio();
-        });
-      }
+      audio.play().catch(e => {
+        console.log('Autoplay bloqueado:', e);
+        mostrarBotonAudio();
+      });
     }
     
     function mostrarBotonAudio() {
-      if (document.getElementById('boton-musica')) return;
-      
       const btn = document.createElement('button');
-      btn.id = 'boton-musica';
-      btn.innerHTML = '🎵 ACTIVAR MÚSICA';
+      btn.textContent = '🎵 Activar Música';
       btn.style.position = 'fixed';
       btn.style.bottom = '20px';
       btn.style.right = '20px';
@@ -315,7 +343,6 @@
       btn.style.zIndex = '10000';
       btn.style.cursor = 'pointer';
       btn.style.fontFamily = 'Georgia, serif';
-      btn.style.fontSize = '14px';
       
       btn.onclick = () => {
         audio.play();
@@ -325,24 +352,13 @@
       document.body.appendChild(btn);
     }
     
-    // Activar música con cualquier interacción
-    const eventos = ['click', 'touchstart', 'scroll', 'mousemove', 'keydown'];
-    
-    eventos.forEach(evento => {
-      window.addEventListener(evento, iniciarAudio, { 
-        once: true,
-        passive: true
-      });
-    });
-    
-    // Intento inicial después de carga
+    // Intentar reproducir al cargar y con interacción
     window.addEventListener('load', () => {
       setTimeout(iniciarAudio, 1000);
     });
     
-    // Sobre canvas: Puedes enviarme tus diseños para implementarlos
-    // Actualmente usamos un sistema de partículas (confeti)
-    // pero podemos cambiarlo por imágenes canvas si lo prefieres
+    document.addEventListener('click', iniciarAudio, { once: true });
+    document.addEventListener('touchstart', iniciarAudio, { once: true });
   </script>
 </body>
 </html>
