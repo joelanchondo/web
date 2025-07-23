@@ -1,141 +1,195 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SANTIAGO XV - INVITACIÓN</title>
-  <!-- Google Fonts -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SANTIAGO XV</title>
+  <!-- Fonts: Cinzel Decorative, Dancing Script (similar a RhymeTH), Montserrat for details -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      background: #101014;
-      min-height: 100vh;
+    :root {
+      --color-primario: #fff;
+      --color-secundario: #ff69b4;
+      --color-destacado: #ffd700;
+      --color-borde: #c6a94b;
+    }
+
+    body {
       margin: 0;
       padding: 0;
+      background: #101014 radial-gradient(ellipse at 80% 10%, #fff2 1px, transparent 45%), 
+                  #101014 radial-gradient(ellipse at 15% 80%, #fff2 1px, transparent 55%);
+      color: var(--color-primario);
       font-family: 'Cinzel Decorative', serif;
-      color: #fff;
-      letter-spacing: 2.5px;
-    }
-    body {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      min-height: 100vh;
       overflow-x: hidden;
-      /* Estrellas simuladas, puedes cambiarlo por una imagen si tienes */
-      background: #101014 radial-gradient(ellipse at 80% 10%, #fff2 1px, transparent 45%), 
-                  #101014 radial-gradient(ellipse at 15% 80%, #fff2 1px, transparent 55%);
     }
-    .invitacion-card {
-      background: rgba(16,16,20,0.98);
-      border-radius: 1.8rem;
-      margin: 38px 0 28px 0;
-      max-width: 440px;
-      width: 94vw;
-      position: relative;
-      box-shadow: 0 8px 40px #000a;
-      padding: 2.2rem 1.5rem 1.8rem 1.5rem;
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      padding: 40px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 2px solid #c6a94b;
-      /* Marco con esquinas doradas usando SVG de fondo */
+      position: relative;
+    }
+
+    /* Marco dorado con esquinas decoradas (SVG en background) */
+    .info-card {
+      background: rgba(16, 16, 20, 0.98);
+      border-radius: 1.8rem;
+      margin: 0;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+      padding: 30px 20px 30px 20px;
+      position: relative;
+      border: 2px solid var(--color-borde);
+
+      /* Esquinas decoradas con SVG circles */
       background-image:
-        url('data:image/svg+xml;utf8,<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="3" fill="gold"/></svg>'),
-        url('data:image/svg+xml;utf8,<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><circle cx="54" cy="10" r="3" fill="gold"/></svg>'),
-        url('data:image/svg+xml;utf8,<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="54" r="3" fill="gold"/></svg>'),
-        url('data:image/svg+xml;utf8,<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><circle cx="54" cy="54" r="3" fill="gold"/></svg>');
+        url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="3" fill="gold"/></svg>'),
+        url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><circle cx="23" cy="9" r="3" fill="gold"/></svg>'),
+        url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="23" r="3" fill="gold"/></svg>'),
+        url('data:image/svg+xml;utf8,<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><circle cx="23" cy="23" r="3" fill="gold"/></svg>');
       background-position: left top, right top, left bottom, right bottom;
       background-repeat: no-repeat;
+      background-size: 32px 32px;
+      text-align: center;
+      box-sizing: border-box;
     }
-    .svg-corona {
-      width: 76px;
+
+    .corona {
+      width: 115px;
+      height: 90px;
+      object-fit: contain;
+      margin-bottom: 12px;
+      margin-top: 6px;
+      filter: drop-shadow(0 0 10px var(--color-destacado));
       display: block;
-      margin: 0 auto 12px auto;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .numero-15 {
+    /* Si luego tienes tu PNG: <img class="corona" src="corona.png" ...> */
+    /* Por ahora SVG: */
+    .svg-corona {
+      width: 110px;
+      display: block;
+      margin: 0 auto 14px auto;
+    }
+
+    /* Número 15 grande y elegante */
+    .info-card h1 {
+      font-size: 6rem;
+      margin: 0;
+      color: var(--color-destacado);
+      text-shadow: 0 0 30px #c6a94b99, 0 0 6px #000b;
       font-family: 'Cinzel Decorative', serif;
-      font-size: 4.2rem;
-      font-weight: 700;
-      color: #ffe066;
-      text-shadow: 0 1px 16px #c6a94b77, 0 2px 2px #000b;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      letter-spacing: 3px;
-      margin: 0 0 2px 0;
+      text-transform: none;
       line-height: 1;
-    }
-    .nombre-santiago {
-      font-family: 'Great Vibes', cursive;
-      color: #ffe066;
-      font-size: 2.3rem;
-      font-weight: 700;
-      margin-top: 0px;
-      margin-bottom: 18px;
-      text-shadow: 0 2px 10px #c6a94b77, 0 1px 0 #0009;
       letter-spacing: 2px;
-      text-align: center;
     }
-    .separador {
-      width: 80%;
-      border: 0;
-      border-top: 2px dotted #ffe066cc;
-      margin: 10px 0 18px 0;
-      opacity: 0.7;
+
+    /* Nombre grande y script */
+    .info-card h2 {
+      font-size: 3.1rem;
+      margin: 0 0 18px 0;
+      color: #ffe066;
+      font-weight: normal;
+      letter-spacing: 2px;
+      font-family: 'Great Vibes', cursive;
+      text-transform: none;
+      text-shadow: 0 2px 10px #c6a94b77, 0 1px 0 #0009;
     }
-    .texto-central {
-      font-family: 'Montserrat', serif;
-      font-size: 1.04rem;
-      color: #fff9;
-      margin-bottom: 24px;
+
+    .info-card .details {
+      width: 100%;
+      margin-bottom: 20px;
+      margin-top: 5px;
+    }
+
+    .info-card .details p {
+      font-size: 1.18rem;
+      margin: 8px 0;
+      line-height: 1.6;
       text-align: center;
-      letter-spacing: 2.2px;
-      line-height: 1.7;
       text-transform: uppercase;
-    }
-    .datos-fecha {
       font-family: 'Cinzel Decorative', serif;
-      font-size: 2rem;
-      color: #fad37b;
-      text-align: center;
-      font-weight: 700;
-      margin: 2px 0 8px 0;
-      letter-spacing: 4px;
+      color: #fffbe6;
+      letter-spacing: 1.6px;
     }
-    .datos-direccion {
-      color: #ffe066;
-      font-family: 'Montserrat', serif;
+
+    .info-card .map-section {
+      width: 100%;
+      margin-top: 14px;
+    }
+
+    .info-card .map-section img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border: 2px solid var(--color-destacado);
+      border-radius: 12px;
+      margin: 10px 0 13px 0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .info-card .map-section p {
       font-size: 1.1rem;
+      margin: 6px 0;
       text-align: center;
-      margin-bottom: 0.7rem;
-      letter-spacing: 1.8px;
       text-transform: uppercase;
+      font-family: 'Cinzel Decorative', serif;
+      color: #fffbe6;
     }
-    .datos-hora {
-      font-family: 'Montserrat', serif;
-      font-size: 1.1rem;
-      color: #ffe066;
-      text-align: center;
-      margin-bottom: 10px;
-      letter-spacing: 1.7px;
+
+    .info-card .map-section a {
+      color: var(--color-secundario);
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background: rgba(255, 105, 180, 0.18);
+      border: 1px solid var(--color-secundario);
       text-transform: uppercase;
+      font-family: 'Cinzel Decorative', serif;
+      letter-spacing: 1px;
     }
+
+    .info-card .map-section a:hover {
+      background: rgba(255, 105, 180, 0.3);
+      transform: scale(1.05);
+    }
+
     /* Responsive */
-    @media (max-width: 500px) {
-      .invitacion-card { padding: 1.3rem 0.3rem 1.3rem 0.3rem; max-width: 98vw;}
-      .svg-corona { width: 48px; }
-      .numero-15 { font-size: 2.3rem; }
-      .nombre-santiago { font-size: 1.45rem; }
-      .datos-fecha { font-size: 1.17rem; }
+    @media (max-width: 768px) {
+      .info-card h1 { font-size: 4rem; }
+      .info-card h2 { font-size: 2.1rem; }
+      .info-card .details p { font-size: 1rem; }
+      .info-card { padding: 20px 3vw; }
+      .corona, .svg-corona { width: 72px; height: auto; }
+    }
+    @media (max-width: 480px) {
+      .info-card h1 { font-size: 2.5rem; }
+      .info-card h2 { font-size: 1.3rem; }
+      .info-card .details p { font-size: 0.94rem; }
+      .info-card { padding: 13px 1vw; }
+      .corona, .svg-corona { width: 44px; height: auto; }
     }
   </style>
 </head>
 <body>
-  <div class="invitacion-card">
-    <!-- Esquina superior izquierda decorada (simulada con SVG en fondo) -->
-    <!-- Corona SVG dorada centrada -->
+  <div class="container">
+    <!-- Si tienes PNG, usa <img class="corona" src="corona.png" alt="Corona" /> -->
+    <!-- SVG Corona elegante -->
     <svg class="svg-corona" viewBox="0 0 64 44" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g>
         <path d="M4 14L16 2L32 24L48 2L60 14" stroke="#fad37b" stroke-width="3.2" fill="gold"/>
@@ -146,18 +200,131 @@
         <ellipse cx="32" cy="25" rx="2.1" ry="1.8" fill="#fdf6d3" opacity="0.7"/>
       </g>
     </svg>
-    <!-- Número 15 en grande -->
-    <div class="numero-15">15</div>
-    <!-- Nombre -->
-    <div class="nombre-santiago">Santiago</div>
-    <hr class="separador">
-    <div class="texto-central">
-      TE INVITO A CELEBRAR UN MOMENTO MUY IMPORTANTE EN MI VIDA, MI FIESTA DE 15 AÑOS.
+    <div class="info-card">
+      <h1>15</h1>
+      <h2>SANTIAGO</h2>
+      <div class="details">
+        <p>TE INVITO A CELEBRAR MI FIESTA DE 15 AÑOS</p>
+        <p>FECHA: 16 DE AGOSTO DEL 2025</p>
+        <p>HORARIO: 8:00 PM A 1:00 AM</p>
+        <p>REGALO: EFECTIVO</p>
+        <p>¡PUEDES TRAER TU TRAJE DE BAÑO!</p>
+      </div>
+      <div class="map-section">
+        <img class="direccion-img" src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-0.9176805657866396&panoid=R_rvwVfsnP3NOyCYNMPGBw&yaw=266.82372436316797" alt="UBICACIÓN" />
+        <p>DIRECCIÓN: CALLE MEOQUI #21 COL. REVOLUCIÓN</p>
+        <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z/data=!4m11!1m4!7m3!1m1!1s112236239953861599005!2e2!3m5!1s0x86ea436ab3323d9f:0xa127d9da73902dff!8m2!3d28.7083791!4d-106.099051!16s%2Fg%2F11qjmd4dzw?entry=ttu" target="_blank">VER EN GOOGLE MAPS</a>
+      </div>
     </div>
-    <div class="datos-fecha">16/08/2025</div>
-    <div class="datos-direccion">Calle Meoqui #21 Col. Revolución</div>
-    <div class="datos-hora">Hora: de 8 pm a 1 am</div>
-    <hr class="separador">
+    <audio autoplay loop>
+      <source src="yo-te-esperaba.mp3" type="audio/mpeg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
   </div>
+  <!-- Confetti Mejorado -->
+  <script>
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '9999';
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let W = window.innerWidth;
+    let H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+
+    window.addEventListener('resize', () => {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    });
+
+    const particles = [];
+    const colors = ['#fffbe6', '#ffd700', '#ffe066', '#f1faee', '#fffbe699'];
+    const particleCount = window.innerWidth < 768 ? 80 : 150;
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * W,
+        y: Math.random() * -H,
+        size: Math.random() * 10 + 6,
+        speed: Math.random() * 1.4 + 0.4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        sway: Math.random() * 2 - 1,
+        swaySpeed: Math.random() * 0.01 + 0.006,
+        angle: 0
+      });
+    }
+
+    function updateParticles() {
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.y += p.speed;
+        p.angle += p.swaySpeed;
+        p.x += Math.sin(p.angle) * p.sway;
+        if (p.y > H) {
+          p.y = Math.random() * -100;
+          p.x = Math.random() * W;
+        }
+      }
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.angle);
+        ctx.beginPath();
+        ctx.arc(0, 0, p.size, 0, 2 * Math.PI);
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = '#ffd70088';
+        ctx.shadowBlur = 10;
+        ctx.fill();
+        ctx.restore();
+      }
+      updateParticles();
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+
+    // Sistema de audio mejorado
+    const audio = document.querySelector('audio');
+    function iniciarAudio() {
+      audio.play().catch(e => {
+        mostrarBotonAudio();
+      });
+    }
+    function mostrarBotonAudio() {
+      const btn = document.createElement('button');
+      btn.textContent = '🎵 ACTIVAR MÚSICA';
+      btn.style.position = 'fixed';
+      btn.style.bottom = '20px';
+      btn.style.right = '20px';
+      btn.style.padding = '10px 15px';
+      btn.style.background = 'rgba(255, 215, 0, 0.8)';
+      btn.style.color = '#333';
+      btn.style.border = 'none';
+      btn.style.borderRadius = '20px';
+      btn.style.zIndex = '10000';
+      btn.style.cursor = 'pointer';
+      btn.style.fontFamily = "'Cinzel Decorative', serif";
+      btn.style.letterSpacing = '1.5px';
+      btn.onclick = () => {
+        audio.play();
+        btn.remove();
+      };
+      document.body.appendChild(btn);
+    }
+    window.addEventListener('load', () => {
+      setTimeout(iniciarAudio, 1200);
+    });
+    document.addEventListener('click', iniciarAudio, { once: true });
+    document.addEventListener('touchstart', iniciarAudio, { once: true });
+  </script>
 </body>
 </html>
