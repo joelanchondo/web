@@ -11,6 +11,7 @@
       --color-blanco: #fff;
       --color-fondo: #000;
       --color-marcoborde: #c6a94b;
+      --color-whatsapp: #25d366;
     }
     html, body {
       background: var(--color-fondo);
@@ -58,7 +59,6 @@
       box-sizing: border-box;
       z-index: 2;
     }
-    /* Corona PNG centrada, el doble de grande que antes */
     .corona {
       width: 240px;
       max-width: 98vw;
@@ -69,7 +69,6 @@
       margin-right: auto;
       filter: drop-shadow(0 0 22px var(--color-dorado));
     }
-    /* Nombre SANTIAGO PNG */
     .nombre-img {
       width: 220px;
       max-width: 85vw;
@@ -77,7 +76,6 @@
       margin: 0 auto 6px auto;
       filter: drop-shadow(0 0 8px #ffd700bb) brightness(1.1);
     }
-    /* Número PNG */
     .numero-img {
       width: 180px;
       max-width: 80vw;
@@ -130,24 +128,53 @@
       color: #fffbe6;
       text-transform: none;
     }
-    .info-card .map-section a {
-      color: var(--color-dorado);
+    .info-card .map-section a,
+    .info-card .btn-confirmar {
       text-decoration: none;
       font-weight: bold;
       transition: all 0.3s ease;
       display: inline-block;
       margin-top: 8px;
+      margin-bottom: 3px;
       padding: 8px 15px;
       border-radius: 20px;
       background: rgba(255, 215, 0, 0.18);
       border: 1px solid var(--color-dorado);
+      color: var(--color-dorado);
       text-transform: uppercase;
       font-family: 'Cinzel Decorative', serif;
       letter-spacing: 1px;
+      font-size: 1rem;
     }
-    .info-card .map-section a:hover {
+    .info-card .map-section a:hover,
+    .info-card .btn-confirmar:hover {
       background: rgba(255, 215, 0, 0.3);
       transform: scale(1.05);
+      color: #000;
+    }
+    .info-card .btn-confirmar {
+      background: var(--color-whatsapp);
+      border: 1.5px solid #128c7e;
+      color: #fff;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-shadow: 0 1px 8px #0008;
+    }
+    .info-card .btn-confirmar:hover {
+      background: #128c7e;
+      color: #fff;
+    }
+    .info-card .btn-confirmar svg {
+      width: 1.3em;
+      height: 1.3em;
+      vertical-align: middle;
+      fill: #fff;
     }
     /* Responsive */
     @media (max-width: 700px) {
@@ -163,6 +190,8 @@
       .nombre-img { width: 68px;}
       .numero-img { width: 78px;}
       .details p { font-size: 0.94rem; }
+      .info-card .btn-confirmar,
+      .info-card .map-section a { font-size: 0.86rem; padding: 7px 7px;}
     }
   </style>
 </head>
@@ -183,9 +212,14 @@
         <img class="direccion-img" src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-0.9176805657866396&panoid=R_rvwVfsnP3NOyCYNMPGBw&yaw=266.82372436316797" alt="Ubicación" />
         <p><strong>Dirección:</strong> Calle Meoqui #21 Col. Revolución</p>
         <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z/data=!4m11!1m4!7m3!1m1!1s112236239953861599005!2e2!3m5!1s0x86ea436ab3323d9f:0xa127d9da73902dff!8m2!3d28.7083791!4d-106.099051!16s%2Fg%2F11qjmd4dzw?entry=ttu" target="_blank">Ver en Google Maps</a>
+        <br />
+        <a class="btn-confirmar" href="https://wa.me/526143217493?text=Hola!%20Confirmo%20mi%20asistencia%20a%20los%2015%20años%20de%20Santiago." target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32"><path d="M16.004 3.2c-7.05 0-12.8 5.75-12.8 12.8 0 2.256.594 4.468 1.72 6.406l-1.838 6.45c-.14.49.013 1.018.396 1.343.247.21.565.327.886.327.148 0 .297-.025.438-.076l6.477-2.206c1.888.971 3.994 1.482 6.121 1.482h.001c7.05 0 12.8-5.75 12.8-12.8s-5.751-12.8-12.801-12.8zm0 23.2c-1.939 0-3.889-.484-5.591-1.401-.24-.127-.523-.151-.779-.069l-5.771 1.964 1.637-5.744c.073-.257.037-.534-.089-.764-1.087-1.903-1.661-4.078-1.661-6.186 0-6.065 4.935-11 11-11s11 4.935 11 11-4.935 11-11 11zm6.264-7.547c-.342-.171-2.022-.996-2.336-1.111-.314-.114-.543-.171-.772.171-.228.342-.886 1.112-1.085 1.341-.2.228-.4.257-.743.086-.342-.171-1.445-.532-2.753-1.696-1.017-.908-1.705-2.027-1.905-2.37-.2-.343-.021-.528.151-.699.154-.153.342-.4.514-.6.171-.2.228-.343.343-.571.114-.228.057-.428-.028-.599-.086-.171-.771-1.857-1.054-2.543-.277-.668-.566-.577-.771-.588-.2-.009-.428-.011-.656-.011-.228 0-.599.086-.913.428-.314.342-1.2 1.17-1.2 2.854s1.23 3.316 1.401 3.548c.171.228 2.422 3.701 5.871 5.048.822.317 1.462.507 1.963.649.825.262 1.576.225 2.17.137.662-.098 2.022-.826 2.309-1.624.286-.798.286-1.482.2-1.624-.086-.143-.314-.228-.657-.4z"/></svg>
+          Confirmar asistencia
+        </a>
       </div>
     </div>
-    <audio id="audio-bgm" autoplay loop>
+    <audio id="audio-bgm" preload="auto">
       <source src="yo-te-esperaba.mp3" type="audio/mpeg">
       Tu navegador no soporta el elemento de audio.
     </audio>
@@ -256,15 +290,27 @@
     }
     drawParticles();
 
-    // Música: se activa con scroll o click, sólo una vez/trabaja bien en móviles y desktop
+    // Música: activar con el primer tap/click/scroll y ocultar botón si suena
     const audio = document.getElementById('audio-bgm');
     let musicaIntentada = false;
+    let botonMostrado = false;
+
     function activarMusica() {
       if (musicaIntentada) return;
       musicaIntentada = true;
-      audio.play().catch(() => mostrarBotonAudio());
+      audio.play().then(() => {
+        // Éxito: oculta botón si estaba visible
+        const btn = document.getElementById('btn-audio-activar');
+        if (btn) btn.remove();
+      }).catch(() => {
+        // Si falla, muestra el botón
+        mostrarBotonAudio();
+      });
     }
+
     function mostrarBotonAudio() {
+      if (botonMostrado) return;
+      botonMostrado = true;
       if (document.getElementById('btn-audio-activar')) return;
       const btn = document.createElement('button');
       btn.id = 'btn-audio-activar';
@@ -287,11 +333,15 @@
       };
       document.body.appendChild(btn);
     }
-    document.addEventListener('click', activarMusica, { once: true });
-    document.addEventListener('touchstart', activarMusica, { once: true });
-    document.addEventListener('scroll', activarMusica, { once: true });
+
+    // Eventos para móviles y web
+    document.addEventListener('click', activarMusica, { once: true, passive: true });
+    document.addEventListener('touchstart', activarMusica, { once: true, passive: true });
+    document.addEventListener('scroll', activarMusica, { once: true, passive: true });
+
+    // En desktop, intentar reproducir tras cargar
     window.addEventListener('load', () => {
-      setTimeout(activarMusica, 1200);
+      setTimeout(activarMusica, 800);
     });
   </script>
 </body>
