@@ -111,15 +111,6 @@
       width: 100%;
       margin-top: 14px;
     }
-    .info-card .map-section img {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      border: 2px solid var(--color-dorado);
-      border-radius: 12px;
-      margin: 10px 0 13px 0;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    }
     .info-card .map-section p {
       font-size: 1.1rem;
       margin: 6px 0;
@@ -176,6 +167,28 @@
       vertical-align: middle;
       fill: #fff;
     }
+    .info-card .link-img-ref {
+      background: #222;
+      border: 1px solid #444;
+      color: #ffe066;
+      margin-top: 10px;
+      margin-bottom: 0;
+      padding: 7px 15px;
+      border-radius: 18px;
+      font-size: 0.97rem;
+      font-family: inherit;
+      letter-spacing: 1px;
+      text-transform: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .info-card .link-img-ref:hover {
+      background: #333;
+      color: #ffd700;
+      border: 1px solid #ffd700;
+      text-decoration: underline;
+      transform: scale(1.04);
+    }
     /* Responsive */
     @media (max-width: 700px) {
       .container { padding: 18px 2vw; }
@@ -191,7 +204,8 @@
       .numero-img { width: 78px;}
       .details p { font-size: 0.94rem; }
       .info-card .btn-confirmar,
-      .info-card .map-section a { font-size: 0.86rem; padding: 7px 7px;}
+      .info-card .map-section a,
+      .info-card .link-img-ref { font-size: 0.86rem; padding: 7px 7px;}
     }
   </style>
 </head>
@@ -209,14 +223,13 @@
         <p><strong>¡Puedes traer tu traje de baño!</strong></p>
       </div>
       <div class="map-section">
-        <img class="direccion-img" src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-0.9176805657866396&panoid=R_rvwVfsnP3NOyCYNMPGBw&yaw=266.82372436316797" alt="Ubicación" />
         <p><strong>Dirección:</strong> Calle Meoqui #21 Col. Revolución</p>
         <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z/data=!4m11!1m4!7m3!1m1!1s112236239953861599005!2e2!3m5!1s0x86ea436ab3323d9f:0xa127d9da73902dff!8m2!3d28.7083791!4d-106.099051!16s%2Fg%2F11qjmd4dzw?entry=ttu" target="_blank">Ver en Google Maps</a>
-        <br />
         <a class="btn-confirmar" href="https://wa.me/526143217493?text=Hola!%20Confirmo%20mi%20asistencia%20a%20los%2015%20años%20de%20Santiago." target="_blank" rel="noopener">
           <svg viewBox="0 0 32 32"><path d="M16.004 3.2c-7.05 0-12.8 5.75-12.8 12.8 0 2.256.594 4.468 1.72 6.406l-1.838 6.45c-.14.49.013 1.018.396 1.343.247.21.565.327.886.327.148 0 .297-.025.438-.076l6.477-2.206c1.888.971 3.994 1.482 6.121 1.482h.001c7.05 0 12.8-5.75 12.8-12.8s-5.751-12.8-12.801-12.8zm0 23.2c-1.939 0-3.889-.484-5.591-1.401-.24-.127-.523-.151-.779-.069l-5.771 1.964 1.637-5.744c.073-.257.037-.534-.089-.764-1.087-1.903-1.661-4.078-1.661-6.186 0-6.065 4.935-11 11-11s11 4.935 11 11-4.935 11-11 11zm6.264-7.547c-.342-.171-2.022-.996-2.336-1.111-.314-.114-.543-.171-.772.171-.228.342-.886 1.112-1.085 1.341-.2.228-.4.257-.743.086-.342-.171-1.445-.532-2.753-1.696-1.017-.908-1.705-2.027-1.905-2.37-.2-.343-.021-.528.151-.699.154-.153.342-.4.514-.6.171-.2.228-.343.343-.571.114-.228.057-.428-.028-.599-.086-.171-.771-1.857-1.054-2.543-.277-.668-.566-.577-.771-.588-.2-.009-.428-.011-.656-.011-.228 0-.599.086-.913.428-.314.342-1.2 1.17-1.2 2.854s1.23 3.316 1.401 3.548c.171.228 2.422 3.701 5.871 5.048.822.317 1.462.507 1.963.649.825.262 1.576.225 2.17.137.662-.098 2.022-.826 2.309-1.624.286-.798.286-1.482.2-1.624-.086-.143-.314-.228-.657-.4z"/></svg>
           Confirmar asistencia
         </a>
+        <a class="link-img-ref" href="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-0.9176805657866396&panoid=R_rvwVfsnP3NOyCYNMPGBw&yaw=266.82372436316797" target="_blank" rel="noopener">Ver foto de la ubicación</a>
       </div>
     </div>
     <audio id="audio-bgm" preload="auto">
@@ -299,11 +312,9 @@
       if (musicaIntentada) return;
       musicaIntentada = true;
       audio.play().then(() => {
-        // Éxito: oculta botón si estaba visible
         const btn = document.getElementById('btn-audio-activar');
         if (btn) btn.remove();
       }).catch(() => {
-        // Si falla, muestra el botón
         mostrarBotonAudio();
       });
     }
@@ -338,8 +349,6 @@
     document.addEventListener('click', activarMusica, { once: true, passive: true });
     document.addEventListener('touchstart', activarMusica, { once: true, passive: true });
     document.addEventListener('scroll', activarMusica, { once: true, passive: true });
-
-    // En desktop, intentar reproducir tras cargar
     window.addEventListener('load', () => {
       setTimeout(activarMusica, 800);
     });
