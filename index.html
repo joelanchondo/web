@@ -2,133 +2,124 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Invitación XV Santiago</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación XV Años</title>
   <style>
     body {
       margin: 0;
-      background: linear-gradient(to bottom right, #fff3f8, #ffe8cc);
-      font-family: 'Montserrat', sans-serif;
-      color: #333;
-      text-align: center;
-      overflow-x: hidden;
+      padding: 0;
+      background-color: #000;
+      color: white;
+      font-family: 'Georgia', serif;
+      background-image: url('https://i.imgur.com/VxEq2yl.png'); /* Esquineros PNG transparente */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
     }
 
-    header {
-      padding: 3rem 1rem 1rem;
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .corona {
+      width: 80px;
+      margin: 0 auto 10px;
     }
 
     h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.5rem;
-      color: #b30059;
+      font-size: 2.8rem;
+      margin: 0;
+      font-weight: bold;
+      text-transform: uppercase;
     }
 
-    h2 {
-      margin-top: 0;
-      font-weight: 300;
-      color: #666;
-    }
-
-    .content {
-      max-width: 600px;
-      margin: auto;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-
-    .content p {
-      font-size: 1.1rem;
-      margin: 1rem 0;
-    }
-
-    .maps-btn {
-      margin: 2rem 0 1rem;
-      padding: 1rem 2rem;
-      background-color: #b30059;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .maps-btn:hover {
-      background-color: #800040;
-    }
-
-    .confetti {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 0;
-      z-index: 10;
-      pointer-events: none;
-    }
-
-    .footer {
-      font-size: 0.9rem;
-      color: #777;
+    .section {
       margin-top: 2rem;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .section p {
+      font-size: 1.2rem;
+      margin: 0.3rem 0;
+    }
+
+    .mapa {
+      margin: 1rem auto;
+    }
+
+    .mapa img {
+      max-width: 100%;
+      border: 2px solid white;
+      border-radius: 10px;
+    }
+
+    audio {
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .section h2 {
+        font-size: 1.5rem;
+      }
+      .section p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <img src="https://i.imgur.com/pvYO3HM.png" alt="Corona" class="corona">
 
-  <div class="confetti" id="confetti"></div>
+    <h1>Mis XV Años</h1>
 
-  <header>
-    <h1>Santiago 15</h1>
-    <h2>¡Estás invitado a mi fiesta de XV!</h2>
-  </header>
+    <div class="section">
+      <h2>Joel Anchondo</h2>
+      <p>Con la bendición de Dios y el amor de mis padres</p>
+      <p>Te invito a celebrar este día tan especial</p>
+    </div>
 
-  <div class="content">
-    <p><strong>📅 Fecha:</strong> 16 de agosto de 2025</p>
-    <p><strong>📍 Dirección:</strong> Meoqui 32-18, Col. Revolución, Chihuahua, Chih.</p>
-    <p><strong>🕗 Horario:</strong> 8:00 PM a 1:00 AM</p>
-    <p><strong>🎁 Regalo:</strong> Efectivo</p>
-    <p><strong>🌊 Extra:</strong> ¡Trae tu traje de baño!</p>
+    <div class="section">
+      <h2>Fecha y Hora</h2>
+      <p>Sábado 24 de agosto 2025</p>
+      <p>Recepción: 6:00 PM</p>
+    </div>
 
-    <button class="maps-btn" onclick="window.open('https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z', '_blank')">
-      Ver en Google Maps
-    </button>
+    <div class="section">
+      <h2>Dirección</h2>
+      <p>Granja Los Sernas</p>
+      <p>Meoqui 32-18, Revolución, 31135</p>
+      <p>Chihuahua, Chih.</p>
+    </div>
+
+    <div class="mapa">
+      <a href="https://www.google.com/maps/place/GRANJA+PARA+EVENTOS+LOS+SERNAS/@28.708373,-106.0991811,20z" target="_blank">
+        <img src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-0.91&panoid=R_rvwVfsnP3NOyCYNMPGBw&yaw=266.82" alt="Ubicación">
+      </a>
+    </div>
+
+    <div class="section">
+      <h2>¡Te espero!</h2>
+      <p>Será un momento inolvidable</p>
+    </div>
+
+    <audio autoplay loop controls>
+      <source src="https://raw.githubusercontent.com/joelanchondo/mimusica/main/quince.mp3" type="audio/mpeg">
+      Tu navegador no soporta audio HTML5.
+    </audio>
   </div>
-
-  <div class="footer">
-    © Santiago XV – 2025
-  </div>
-
-  <audio autoplay loop>
-    <source src="yo-te-esperaba.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio HTML5.
-  </audio>
-
-  <script>
-    // Confetti básico
-    const confettiContainer = document.getElementById('confetti');
-    const colors = ['#f06292', '#ba68c8', '#64b5f6', '#81c784', '#ffd54f'];
-
-    for (let i = 0; i < 150; i++) {
-      const confetti = document.createElement('div');
-      confetti.style.width = '8px';
-      confetti.style.height = '8px';
-      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      confetti.style.position = 'absolute';
-      confetti.style.top = `${Math.random() * window.innerHeight}px`;
-      confetti.style.left = `${Math.random() * window.innerWidth}px`;
-      confetti.style.opacity = Math.random();
-      confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-      confetti.style.transition = 'top 3s ease-out';
-      confettiContainer.appendChild(confetti);
-      setTimeout(() => {
-        confetti.style.top = `${window.innerHeight + 20}px`;
-      }, 100);
-    }
-  </script>
-
 </body>
 </html>
