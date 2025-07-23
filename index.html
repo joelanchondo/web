@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SANTIAGO XV</title>
-  <link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Dancing+Script&family=Georgia&display=swap" rel="stylesheet">
   <style>
     :root {
       --color-primario: #ffffff;
@@ -55,6 +55,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); /* Efecto elegante en el marco */
     }
 
     .info-card::before,
@@ -65,7 +66,7 @@
       position: absolute;
       width: 25px;
       height: 25px;
-      border: 3px solid var(--color-primario);
+      border: 3px solid var(--color-destacado); /* Cambio a dorado para simular sticker */
     }
 
     .info-card::before {
@@ -104,7 +105,8 @@
       font-size: 3.5rem;
       margin: 0 0 10px 0;
       color: var(--color-destacado);
-      text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.7), 0 0 5px rgba(255, 215, 0, 0.5); /* Efecto dorado tipo sticker */
+      font-family: 'Georgia', serif; /* Simulación hasta que obtengamos RhymeTH */
       text-transform: uppercase;
     }
 
@@ -114,6 +116,7 @@
       color: var(--color-primario);
       font-weight: normal;
       letter-spacing: 2px;
+      font-family: 'Dancing Script', cursive; /* Aproximación a RhymeTH */
       text-transform: uppercase;
     }
 
@@ -128,6 +131,7 @@
       line-height: 1.6;
       text-align: center;
       text-transform: uppercase;
+      font-family: 'Cinzel Decorative', serif;
     }
 
     .info-card .map-section {
@@ -139,7 +143,7 @@
       width: 100%;
       max-width: 600px;
       height: auto;
-      border: 2px solid var(--color-primario);
+      border: 2px solid var(--color-destacado);
       border-radius: 12px;
       margin: 15px 0;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
@@ -150,6 +154,7 @@
       margin: 10px 0;
       text-align: center;
       text-transform: uppercase;
+      font-family: 'Cinzel Decorative', serif;
     }
 
     .info-card .map-section a {
@@ -164,6 +169,7 @@
       background: rgba(255, 105, 180, 0.2);
       border: 1px solid var(--color-secundario);
       text-transform: uppercase;
+      font-family: 'Cinzel Decorative', serif;
     }
 
     .info-card .map-section a:hover {
