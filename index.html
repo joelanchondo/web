@@ -60,7 +60,7 @@
       z-index: 2;
     }
     .corona {
-      width: 450px; /* 240px + 20% */
+      width: 450px;
       max-width: 200vw;
       margin-bottom: 2px;
       margin-top: 4px;
@@ -71,7 +71,7 @@
       transition: width 0.2s;
     }
     .nombre-img {
-      width: 400px; /* 220px + 30% */
+      width: 400px;
       max-width: 100vw;
       display: block;
       margin: 0 auto 6px auto;
@@ -79,7 +79,7 @@
       transition: width 0.2s;
     }
     .numero-img {
-      width: 80px; /* 180px + 30% */
+      width: 80px;
       max-width: 65vw;
       margin-bottom: 6px;
       margin-top: 6px;
@@ -192,13 +192,57 @@
       text-decoration: underline;
       transform: scale(1.04);
     }
-    /* Responsive */
+    .contador-section {
+      width: 100%;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 18px;
+    }
+    .contador-mensaje {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.1rem;
+      color: #ffe066;
+      margin-bottom: 8px;
+      letter-spacing: 1.2px;
+      text-shadow: 0 0 10px #c6a94b99;
+    }
+    .contador {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      font-size: 2.1rem;
+      font-family: 'Cinzel Decorative', serif;
+      color: var(--color-dorado);
+      text-shadow: 0 0 14px #c6a94bb0, 0 1px 0 #0009;
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+    .contador-item {
+      background: rgba(255,215,0,0.09);
+      border-radius: 14px;
+      min-width: 66px;
+      padding: 6px 0;
+      border: 1px solid #c6a94b;
+      box-shadow: 0 0 8px #ffd70033;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .contador-label {
+      font-size: 0.85rem;
+      color: #fffbe6;
+      margin-top: 2px;
+      letter-spacing: 1px;
+      font-family: inherit;
+    }
     @media (max-width: 700px) {
       .container { padding: 18px 2vw; }
       .info-card { padding: 24px 2vw; }
       .corona { width: 300px; }
       .nombre-img { width: 250px;}
       .numero-img { width: 100px;}
+      .contador { font-size: 1.4rem; gap: 10px;}
+      .contador-item { min-width: 38px; }
     }
     @media (max-width: 480px) {
       .info-card { padding: 13px 1vw; }
@@ -209,6 +253,8 @@
       .info-card .btn-confirmar,
       .info-card .map-section a,
       .info-card .link-img-ref { font-size: 0.86rem; padding: 7px 7px;}
+      .contador { font-size: 1.02rem;}
+      .contador-item { min-width: 24px; }
     }
   </style>
 </head>
@@ -235,6 +281,12 @@
         </a>
         <a class="link-img-ref" href="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=-0.9176805657866396&panoid=R_rvwVfsnP3NOyCYNMPGBw&yaw=266.82372436316797" target="_blank" rel="noopener">Ver foto de la ubicación</a>
       </div>
+    </div>
+    <div class="contador-section">
+      <div class="contador-mensaje">
+        SI QUIERES LLEVAR BEBIDAS SOLO QUE SEAN DESECHABLES NO DE VIDRIO
+      </div>
+      <div id="contador" class="contador"></div>
     </div>
     <audio id="audio-bgm" preload="auto">
       <source src="yo-te-esperaba.mp3" type="audio/mpeg">
@@ -356,6 +408,25 @@
     window.addEventListener('load', () => {
       setTimeout(activarMusica, 800);
     });
+
+    // CONTADOR (16 de agosto 2025, 20:00:00)
+    function updateCountdown() {
+      const target = new Date("2025-08-16T20:00:00");
+      const now = new Date();
+      let diff = target - now;
+      if (diff < 0) diff = 0;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      document.getElementById("contador").innerHTML =
+        `<div class="contador-item"><div>${days}</div><div class="contador-label">días</div></div>
+         <div class="contador-item"><div>${hours}</div><div class="contador-label">horas</div></div>
+         <div class="contador-item"><div>${minutes}</div><div class="contador-label">min</div></div>
+         <div class="contador-item"><div>${seconds}</div><div class="contador-label">seg</div></div>`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 </body>
 </html>
